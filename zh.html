@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-act="1" data-loop="1">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>向阳汽车旅馆 — 19号州道的阳光栖居 | 始建于 1962</title>
+  <meta name="description" content="向阳汽车旅馆，位于亚利桑那州彩绘台地19号州道44英里碑。14间冷气灰泥客房、恒温肾形泳池、免费碎冰与客房调幅收音机，自1962年5月14日起温暖迎客。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- 全局氛围叠层（随滚动深度渐进显现） -->
+  <div id="atmosphere-vignette" aria-hidden="true"></div>
+  <div id="film-grain" aria-hidden="true"></div>
+  <div id="scare-flash-layer" aria-hidden="true">
+    <img src="assets/climax-hallway.jpg" alt="" class="flash-img" />
+    <div class="flash-caption" id="flash-caption"></div>
+  </div>
+
+  <!-- =========================================================
+       复古悬浮导航栏 & 实时霓虹灯牌
+       ========================================================= -->
+  <header id="motel-nav" class="motel-nav">
+    <div class="nav-inner">
+      <a href="#act-hero" class="brand-crest" aria-label="向阳汽车旅馆首页">
+        <svg class="starburst-icon" viewBox="0 0 36 36" width="28" height="28" aria-hidden="true">
+          <path d="M18 1 L20.5 13.5 L33 11 L22.5 18 L35 23 L21.5 22 L25 35 L18 24 L11 35 L14.5 22 L1 23 L13.5 18 L3 11 L15.5 13.5 Z" fill="currentColor" />
+        </svg>
+        <div class="brand-lockup">
+          <span class="brand-script" id="nav-brand-name">向阳旅馆</span>
+          <span class="brand-sub" id="nav-brand-sub">19号州道 · 44英里碑</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="主导航">
+        <a href="#act-postcards" class="nav-link" data-nav="0">泳池与庭院</a>
+        <a href="#act-rooms" class="nav-link" data-nav="1">客房与房价</a>
+        <a href="#act-ledger" class="nav-link" data-nav="2">旅客登记簿</a>
+        <a href="#act-nightfall" class="nav-link" data-nav="3">旅馆设施</a>
+        <a href="#act-darkroom" class="nav-link" data-nav="4">立即预订</a>
+      </nav>
+
+      <div class="nav-controls">
+        <div class="neon-sign" id="neon-vacancy" title="空房状态">
+          <span class="neon-dot" aria-hidden="true"></span>
+          <span id="neon-vacancy-text">有空房</span>
+        </div>
+
+        <div class="weather-ticker" id="weather-ticker" aria-live="polite">
+          <span id="weather-temp">29°C</span>
+          <span class="ticker-sep">·</span>
+          <span id="weather-cond">晴朗微风</span>
+        </div>
+
+        <button type="button" id="hifi-toggle" class="hifi-btn" aria-pressed="false" title="开关1962大堂黑胶音响">
+          <svg class="hifi-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+            <path class="wave-1" d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path class="wave-2" d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span id="hifi-label">音响：关</span>
+        </button>
+
+        <a href="index.html" class="lang-switch" lang="en" title="Switch to English Edition">EN</a>
+      </div>
+    </div>
+
+    <div class="milepost-bar" aria-hidden="true">
+      <div class="milepost-fill" id="milepost-fill"></div>
+    </div>
+  </header>
+
+  <main id="motel-main">
+
+    <!-- =========================================================
+         第一幕：1962 阳光抵达 — 温暖复古的公路旅馆画册
+         ========================================================= -->
+    <section id="act-hero" class="act act-hero" data-act-section="1">
+      <div class="hero-media-frame">
+        <img src="assets/hero-sunward-day.jpg" alt="1962年午后阳光下的向阳汽车旅馆庭院与松石绿游泳池" class="hero-img hero-img-day" id="hero-img-day" />
+        <img src="assets/hero-sunward-night.jpg" alt="" class="hero-img hero-img-night" id="hero-img-night" aria-hidden="true" />
+        <div class="hero-scrim"></div>
+      </div>
+
+      <div class="hero-content container">
+        <h1 class="hero-title" id="hero-title">向阳汽车旅馆</h1>
+
+        <div class="hero-badge-row">
+          <span class="vintage-stamp" id="hero-stamp">始建于 1962年5月14日 · 亚利桑那州彩绘台地</span>
+          <span class="aaa-diamond" id="hero-aaa">AAA 认证公路庭院旅馆</span>
+        </div>
+
+        <p class="hero-lead" id="hero-lead">
+          沿着风景如画的19号州道，将爱车直接驶入您的松石绿房门前。十四间制冷空调灰泥客房、
+          波光粼粼的恒温肾形泳池、免费碎冰，以及每间房标配的清脆调幅收音机——每晚仅需
+          <strong>6.50美元</strong>起。
+        </p>
+
+        <div class="hero-actions">
+          <a href="#act-rooms" class="btn-primary" id="hero-cta-primary">查看客房与价目</a>
+          <button type="button" class="btn-secondary" id="hero-hifi-cta">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"></circle>
+              <polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"></polygon>
+            </svg>
+            <span id="hero-hifi-cta-text">开启 1962 大堂黑胶音响</span>
+          </button>
+        </div>
+
+        <dl class="hero-facts">
+          <div>
+            <dt>旅馆位置</dt>
+            <dd id="fact-location">19号州道 44英里碑</dd>
+          </div>
+          <div>
+            <dt>主理人</dt>
+            <dd id="fact-proprietors">亚瑟与伊芙琳·万斯</dd>
+          </div>
+          <div>
+            <dt>退房时间</dt>
+            <dd id="fact-checkout">次日上午 11:00 准时</dd>
+          </div>
+          <div>
+            <dt>总机接线</dt>
+            <dd id="fact-phone">彩绘台地 217 号</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="amenity-ribbon" aria-label="旅馆配套设施">
+        <div class="ribbon-track" id="ribbon-track">
+          <span>全室冷气空调</span>
+          <span class="star-dot">✦</span>
+          <span>恒温肾形泳池</span>
+          <span class="star-dot">✦</span>
+          <span>免费黑白电视</span>
+          <span class="star-dot">✦</span>
+          <span>毗邻24小时餐吧</span>
+          <span class="star-dot">✦</span>
+          <span>门前专属车位</span>
+          <span class="star-dot">✦</span>
+          <span>静谧荒漠之夜</span>
+          <span class="star-dot">✦</span>
+          <span>投币震动按摩床</span>
+          <span class="star-dot">✦</span>
+          <span>每日现烫床单</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         第二幕：池畔时光 & 可翻转的 1962 亚麻明信片
+         ========================================================= -->
+    <section id="act-postcards" class="act act-postcards" data-act-section="2">
+      <div class="container">
+        <div class="section-header-split">
+          <div class="header-col">
+            <h2 class="section-title">真希望你也在场</h2>
+            <p class="section-intro">
+              每位入住的旅客都会在前台获赠三张精印亚麻明信片，由我们免费代贴邮票并寄出。
+              点击下方任意一张明信片，将它翻过来，读一读今年途经19号州道的旅人们写给家人的信。
+            </p>
+          </div>
+
+          <!-- 交互式池畔深度与水温搪瓷牌 -->
+          <aside class="pool-plaque" aria-label="泳池深度与水温指示牌">
+            <div class="plaque-screws" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+            <div class="plaque-header">
+              <h3>恒温肾形游泳池</h3>
+              <span class="plaque-hours">开放时间 07:00 – 午夜</span>
+            </div>
+            <div class="plaque-depths">
+              <span>浅水区：3英尺</span>
+              <span>中段：8英尺</span>
+              <span class="depth-odd" id="depth-marker">深水区：14英尺</span>
+            </div>
+            <div class="thermo-row">
+              <div class="thermo-readout">
+                <span class="thermo-label">当前水温</span>
+                <strong class="thermo-val" id="pool-temp-val">26°C</strong>
+              </div>
+              <button type="button" class="btn-plaque" id="pool-dip-btn">测量池水温度</button>
+            </div>
+            <p class="plaque-note" id="pool-temp-note">
+              由地下泵房每小时自动循环过滤。浴巾请至前台免费领取。
+            </p>
+          </aside>
+        </div>
+
+        <!-- 3张可 3D 翻转的 1962 明信片 -->
+        <div class="postcard-grid">
+          <!-- 明信片 1：纯真温馨 -->
+          <article class="postcard" data-postcard="0" tabindex="0" role="button" aria-pressed="false" aria-label="翻转明信片1：向阳旅馆泳池">
+            <div class="postcard-inner">
+              <div class="postcard-front">
+                <img src="assets/postcard-pool.jpg" alt="1962年阳光明媚的向阳旅馆松石绿肾形游泳池" />
+                <div class="postcard-caption">
+                  <span>池畔假日 — 向阳汽车旅馆</span>
+                  <span class="flip-cue">点击翻面 ↻</span>
+                </div>
+              </div>
+              <div class="postcard-back">
+                <div class="pc-left">
+                  <p class="pc-handwriting">
+                    1962年7月18日 —<br />
+                    亲爱的妹妹：我们在彩绘台地刚过没多远的地方发现了一家极讨人喜欢的汽车旅馆！池水像泡澡一样暖和，老板娘伊芙琳还把冰柠檬水直接端到躺椅边。老卢说这是从阿尔伯克基到弗拉格斯塔夫一路上最干净的地方。周日到家！
+                  </p>
+                  <p class="pc-sign">—— 爱你的 贝蒂与老卢</p>
+                </div>
+                <div class="pc-right">
+                  <div class="pc-stamp">
+                    <span class="stamp-val">4¢</span>
+                    <span class="stamp-txt">美国邮政</span>
+                  </div>
+                  <div class="pc-postmark">彩绘台地邮戳<br />1962.07.19</div>
+                  <div class="pc-address">
+                    <span>克拉拉·米勒夫人 收</span>
+                    <span>榆树台街 412 号</span>
+                    <span>堪萨斯州 威奇托</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 明信片 2：微微违和 -->
+          <article class="postcard" data-postcard="1" tabindex="0" role="button" aria-pressed="false" aria-label="翻转明信片2：星光咖啡餐吧">
+            <div class="postcard-inner">
+              <div class="postcard-front">
+                <img src="assets/postcard-diner.jpg" alt="黄昏时分暖灯亮起的复古公路餐吧" />
+                <div class="postcard-caption">
+                  <span>星光咖啡餐吧 — 毗邻本馆</span>
+                  <span class="flip-cue">点击翻面 ↻</span>
+                </div>
+              </div>
+              <div class="postcard-back">
+                <div class="pc-left">
+                  <p class="pc-handwriting">
+                    1962年9月29日 —<br />
+                    19号公路上最好吃的樱桃派，投五分硬币就能听点唱机。我们的普利茅斯轿车刚拐进院子就断了风扇皮带，亚瑟先生非常热心地帮我们把车推去车棚，说等镇上的配件车来。
+                  </p>
+                  <p class="pc-handwriting pc-cramped">
+                    等等——他周二说配件车周四到。今天明明就是周四，可柜台后面的日历还是周二。告诉妈妈我们住在 9 号房。
+                  </p>
+                </div>
+                <div class="pc-right">
+                  <div class="pc-stamp">
+                    <span class="stamp-val">4¢</span>
+                    <span class="stamp-txt">美国邮政</span>
+                  </div>
+                  <div class="pc-postmark">未寄出<br />前台暂扣</div>
+                  <div class="pc-address">
+                    <span>R. 亨德森先生 收</span>
+                    <span>橡树岭路 88 号</span>
+                    <span>俄克拉荷马州 塔尔萨</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 明信片 3：明显可疑 -->
+          <article class="postcard" data-postcard="2" tabindex="0" role="button" aria-pressed="false" aria-label="翻转明信片3：19号州道日落">
+            <div class="postcard-inner">
+              <div class="postcard-front">
+                <img src="assets/postcard-highway.jpg" alt="黄昏时分笔直延伸向荒漠红岩的空旷双车道公路" />
+                <div class="postcard-caption">
+                  <span>19号州道金色黄昏</span>
+                  <span class="flip-cue">点击翻面 ↻</span>
+                </div>
+              </div>
+              <div class="postcard-back pc-stained">
+                <div class="pc-left">
+                  <p class="pc-handwriting pc-shaky">
+                    1962年10月19日 —<br />
+                    如果有人在 7 号房的地毯底下发现这张卡片，千万别让他拿走你的车钥匙。我们以时速 65 英里往东开了整整两个小时，却三次经过 44 号里程碑。那块霓虹灯牌永远不会熄灭。还有，凌晨 2:17 之后千万别往深水区排水口下面看。下面根本没有水。
+                  </p>
+                </div>
+                <div class="pc-right">
+                  <div class="pc-stamp pc-stamp-torn">
+                    <span class="stamp-val">??</span>
+                    <span class="stamp-txt">已退回</span>
+                  </div>
+                  <div class="pc-postmark pc-postmark-red">1962.10.19<br />凌晨 02:17</div>
+                  <div class="pc-address">
+                    <span>县治安官办公室</span>
+                    <span>彩绘台地</span>
+                    <span><del>亚利桑那州</del></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         第二幕-B：星光咖啡餐吧 — 1962 菜单与卡座点唱机
+         ========================================================= -->
+    <section id="act-diner" class="act act-diner" data-act-section="2">
+      <div class="container">
+        <div class="diner-head">
+          <h2 class="section-title">星光咖啡餐吧 · 紧邻庭院</h2>
+          <p class="section-intro">
+            穿过遮阳连廊即可享用现煎铁板早餐、手打麦乳精奶昔，以及全天24小时供应的荒漠樱桃派。
+            点击任意菜品即可开具手写点菜单，也可以在卡座旁的西伯格（Seeburg）壁挂点唱机里免费点歌。
+          </p>
+        </div>
+
+        <div class="diner-grid">
+          <div class="diner-menu-board">
+            <div class="menu-header-strip">
+              <span>今日特惠与冷饮吧台</span>
+              <span>24小时营业</span>
+            </div>
+            <div class="menu-items" id="diner-menu-items">
+              <button type="button" class="menu-item-btn" data-dish="台地三层热松饼配枫糖" data-price="0.65">
+                <span class="dish-name">台地三层热松饼（配温热枫糖浆）</span>
+                <span class="dish-price">$0.65</span>
+              </button>
+              <button type="button" class="menu-item-btn" data-dish="手工彩绘台地樱桃派" data-price="0.35">
+                <span class="dish-name">手工彩绘台地樱桃派（加香草冰淇淋 +10¢）</span>
+                <span class="dish-price">$0.35</span>
+              </button>
+              <button type="button" class="menu-item-btn" data-dish="19号公路铁板芝士肉饼三明治" data-price="0.85">
+                <span class="dish-name">19号公路铁板芝士肉饼三明治（配酸黄瓜）</span>
+                <span class="dish-price">$0.85</span>
+              </button>
+              <button type="button" class="menu-item-btn" data-dish="无限续杯现煮黑咖啡" data-price="0.15">
+                <span class="dish-name">无限续杯吧台现煮黑咖啡</span>
+                <span class="dish-price">$0.15</span>
+              </button>
+              <button type="button" class="menu-item-btn menu-item-odd" data-dish="夜班经理深夜特供" data-price="0.00">
+                <span class="dish-name">夜班经理深夜特供（仅限凌晨 2:00 后供应）</span>
+                <span class="dish-price">本馆招待</span>
+              </button>
+            </div>
+
+            <div class="waitress-check" id="waitress-check">
+              <div class="check-top">
+                <span>餐桌点单 #0442</span>
+                <span>服务员：伊芙琳</span>
+              </div>
+              <ul class="check-list" id="check-list">
+                <li class="check-empty">点击上方菜品，添加到您的手写点菜单……</li>
+              </ul>
+              <div class="check-total-row">
+                <span>应付总计</span>
+                <strong id="check-total">$0.00</strong>
+              </div>
+              <div class="check-actions">
+                <button type="button" class="btn-diner-order" id="diner-order-btn">按响吧台服务铃</button>
+                <button type="button" class="btn-diner-clear" id="diner-clear-btn">清空</button>
+              </div>
+              <p class="check-note" id="diner-order-note"></p>
+            </div>
+          </div>
+
+          <div class="jukebox-box">
+            <div class="jukebox-chrome-top">
+              <span class="jb-badge">SEEBURG · 百曲壁挂点唱机</span>
+              <span class="jb-coin">5¢ 投币 · 住客免费</span>
+            </div>
+            <div class="jb-strips" id="jb-strips">
+              <button type="button" class="jb-song" data-jb="A1">
+                <span class="jb-code">A1</span>
+                <span class="jb-title">《彩绘台地落日》— 阳光合唱团 (1961)</span>
+              </button>
+              <button type="button" class="jb-song" data-jb="A2">
+                <span class="jb-code">A2</span>
+                <span class="jb-title">《19号公路摇摆曲》— 雷·道森</span>
+              </button>
+              <button type="button" class="jb-song" data-jb="B1">
+                <span class="jb-code">B1</span>
+                <span class="jb-title">《盐滩上的丝绒月亮》— 克拉拉·莱恩</span>
+              </button>
+              <button type="button" class="jb-song" data-jb="B2">
+                <span class="jb-code">B2</span>
+                <span class="jb-title">《44英里碑的午夜》— 未署名压片</span>
+              </button>
+              <button type="button" class="jb-song jb-song-odd" data-jb="C1">
+                <span class="jb-code">C1</span>
+                <span class="jb-title">《别一直开着远光灯》— [B面附赠]</span>
+              </button>
+              <button type="button" class="jb-song jb-song-odd" data-jb="C2">
+                <span class="jb-code">C2</span>
+                <span class="jb-title">[唱片标签已被刮花 · 仅限 33 转播放]</span>
+              </button>
+            </div>
+            <div class="jb-now-playing" id="jb-now-playing" aria-live="polite">
+              <span class="jb-np-label">点唱机就绪</span>
+              <p class="jb-np-lyric" id="jb-np-lyric">点击任意曲目条，在餐吧里旋响一张 1962 年 45 转黑胶唱片。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         第三幕：客房展示 & 前台黄铜钥匙挂板
+         ========================================================= -->
+    <section id="act-rooms" class="act act-rooms" data-act-section="3">
+      <div class="container">
+        <div class="rooms-intro-grid">
+          <div class="rooms-photo-wrap">
+            <img src="assets/room-vintage.jpg" alt="1962年向阳汽车旅馆客房实景：胡桃木护墙板、芥末黄床罩与拨盘电话" />
+            <div class="photo-plate-caption">
+              <span>02号房 — 仙人掌大床房 · 制冷空调与星芒挂钟</span>
+              <span class="clock-note" id="room-clock-note">挂钟显示 16:15</span>
+            </div>
+          </div>
+
+          <div class="rooms-copy-col">
+            <h2 class="section-title">一尘不染，间间舒心</h2>
+            <p class="section-intro">
+              我们的十四间一层平房均采用实木胡桃护墙板、挺括精梳棉床单与独立瓷砖浴室，
+              床头电话可直通夜间前台的亚瑟先生。
+            </p>
+            <ul class="comfort-checklist">
+              <li>每日黎明前现烫更换的精梳棉床品</li>
+              <li>每间床头柜均配备摩托罗拉调幅收音机</li>
+              <li>独立蒸汽暖气与荒漠冷气循环机</li>
+              <li>每扇房门均配有实心黄铜插销 <span class="subtle-odd">（为保障住客安全，锁舌仅可从门外反锁）</span></li>
+              <li class="subtle-odd-line">请勿拔掉床头闹钟的电源，也请勿将胡桃木五斗柜从东墙移开</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 交互式前台木质钥匙挂板 -->
+        <div class="keyrack-module">
+          <div class="keyrack-header">
+            <div>
+              <h3>前台钥匙挂板 — 查验任意房间</h3>
+              <p>点击悬挂的复古菱形钥匙牌，即可调出该房间的 1962 年价目表与客房部备注。</p>
+            </div>
+            <div class="keyrack-tally" id="keyrack-tally">已查验：0 / 15 间</div>
+          </div>
+
+          <div class="keyrack-layout">
+            <div class="pegboard" id="key-pegboard" role="list" aria-label="旅馆房间钥匙挂板"></div>
+
+            <div class="room-folio" id="room-folio" aria-live="polite">
+              <div class="folio-top">
+                <span class="folio-unit" id="folio-unit">02 号房</span>
+                <span class="folio-rate" id="folio-rate">$6.50 / 晚</span>
+              </div>
+              <h4 class="folio-name" id="folio-name">仙人掌大床房</h4>
+              <div class="folio-status" id="folio-status">状态：空房待客</div>
+              <p class="folio-desc" id="folio-desc">
+                朝东采光极佳的庭院客房，配备弹簧双人床、松石绿瓷砖淋浴间，推门即见恒温肾形泳池。投币按摩床接受25分硬币。
+              </p>
+              <div class="folio-note-box">
+                <span class="folio-note-label">客房部与管理处备注：</span>
+                <p id="folio-note">洗手台已摆放新香皂，百叶窗已除尘，随时可以入住。</p>
+              </div>
+              <div class="folio-actions">
+                <button type="button" class="btn-folio" id="folio-rattle-btn">晃动钥匙并查看暗记</button>
+                <span class="folio-extra" id="folio-extra"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 旅客留言墙 & 过度礼貌的经理回复 -->
+        <div class="reviews-wall">
+          <div class="reviews-head">
+            <h3>19号州道旅客怎么评价我们</h3>
+            <p>摘录自本馆 1962 年大堂意见箱与 AAA 汽车俱乐部回邮卡。</p>
+          </div>
+          <div class="reviews-grid">
+            <article class="review-clip">
+              <div class="review-stars">★★★★★ · 1962年6月</div>
+              <blockquote>“松石绿瓷砖一尘不染，冷气凉爽透心，是亚利桑那最热心的主人。临走前亚瑟先生甚至主动帮我们检查了胎压！”</blockquote>
+              <cite>—— 沃尔特与简·布里格斯，02号房</cite>
+              <button type="button" class="btn-reply-toggle" data-reply-toggle>查看经理回复</button>
+              <p class="manager-reply" hidden>
+                <strong>亚瑟·万斯 回复：</strong>随时效劳，沃尔特！真高兴你们是在十月之前离开的。
+              </p>
+            </article>
+
+            <article class="review-clip">
+              <div class="review-stars">★★★★☆ · 1962年8月</div>
+              <blockquote>“隔壁的樱桃派绝了。唯一的小意见是凌晨两点左右，浴室地板下面会传来低沉而有规律的咚咚声——听起来简直像心跳。”</blockquote>
+              <cite>—— 雷蒙德·贝尔，04号房</cite>
+              <button type="button" class="btn-reply-toggle" data-reply-toggle>查看经理回复</button>
+              <p class="manager-reply" hidden>
+                <strong>亚瑟·万斯 回复：</strong>那只是我们地下泳池水泵在“呼吸”，贝尔先生！下次来请不要把耳朵贴在地漏上。
+              </p>
+            </article>
+
+            <article class="review-clip">
+              <div class="review-stars">★★★☆☆ · 1962年9月</div>
+              <blockquote>“8号房整洁极了，就是早上刮胡子的时候，浴室镜子里照出来的不是我的脸，而是一条黑漆漆的长走廊。还有我的手表停在了 2:17。”</blockquote>
+              <cite>—— 弗兰基·德卢卡，08号房</cite>
+              <button type="button" class="btn-reply-toggle" data-reply-toggle>查看经理回复</button>
+              <p class="manager-reply" hidden>
+                <strong>亚瑟·万斯 回复：</strong>我们随后已经重新镀了 8 号房的镜面水银，并且替各位妥善保管了十四块停走的手表。
+              </p>
+            </article>
+
+            <article class="review-clip review-clip-odd">
+              <div class="review-stars">★★★★★ · 1962年10月19日</div>
+              <blockquote>“我再也不想走了。我的车也不需要走了。只要不再挣扎，深水区的水其实很暖和。五星好评。—— [由管理处代为润色]”</blockquote>
+              <cite>—— R. 亨德森，09号房（仍在住）</cite>
+              <button type="button" class="btn-reply-toggle" data-reply-toggle>查看经理回复</button>
+              <p class="manager-reply" hidden>
+                <strong>亚瑟·万斯 回复：</strong>感谢你的五星好评，罗伯特！你的普利茅斯轿车在车棚里永远安全。
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         第四幕：19号州道黄昏 — 1962 旅客登记簿与异常公路地图
+         ========================================================= -->
+    <section id="act-ledger" class="act act-ledger" data-act-section="4">
+      <div class="container">
+        <div class="ledger-head">
+          <h2 class="section-title">1962 年旅客登记簿</h2>
+          <p class="section-intro">
+            1962 年 5 月至 10 月间，超过四百个家庭、推销员与跨州旅人在大堂签下了自己的名字。
+            按月份翻阅当年的登记页——或者在下方签下你的名字，好让亚瑟替你留着廊灯。
+          </p>
+        </div>
+
+        <div class="guestbook-shell">
+          <div class="guestbook-tabs" role="tablist" aria-label="登记簿月份">
+            <button type="button" class="gb-tab active" role="tab" aria-selected="true" data-gb-page="spring">1962年5月 – 7月</button>
+            <button type="button" class="gb-tab" role="tab" aria-selected="false" data-gb-page="lateSummer">1962年8月 – 9月</button>
+            <button type="button" class="gb-tab gb-tab-warn" role="tab" aria-selected="false" data-gb-page="october">1962年10月</button>
+          </div>
+
+          <div class="guestbook-paper">
+            <div class="ledger-table-wrap">
+              <table class="ledger-table">
+                <thead>
+                  <tr>
+                    <th>入住日期</th>
+                    <th>旅客姓名</th>
+                    <th>来自城市</th>
+                    <th>车型与牌照</th>
+                    <th>房号</th>
+                    <th>退房记录 / 备注</th>
+                  </tr>
+                </thead>
+                <tbody id="ledger-tbody"></tbody>
+              </table>
+            </div>
+
+            <form id="register-sign-form" class="register-form" autocomplete="off">
+              <div class="reg-field">
+                <label for="reg-name">您的姓名</label>
+                <input type="text" id="reg-name" placeholder="例如：林默" maxlength="34" required />
+              </div>
+              <div class="reg-field">
+                <label for="reg-city">来自何处</label>
+                <input type="text" id="reg-city" placeholder="例如：凤凰城" maxlength="28" />
+              </div>
+              <div class="reg-field">
+                <label for="reg-car">驾驶车辆</label>
+                <input type="text" id="reg-car" placeholder="例如：61款福特轿车" maxlength="24" />
+              </div>
+              <button type="submit" class="btn-ledger" id="reg-submit-btn">签入登记簿</button>
+            </form>
+            <div class="register-feedback" id="register-feedback" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <!-- 复古折叠公路地图与里程计算器 -->
+        <div class="map-module">
+          <div class="map-copy">
+            <h3>在旧 19 号州道找到我们</h3>
+            <p>
+              从公路岔口向南行驶 11 英里至彩绘台地出口，留意 44 英里碑处发光的松石绿与珊瑚红箭头灯牌。
+              需要规划返回州际公路的路线？试试下方的荒漠里程计算器。
+            </p>
+
+            <div class="distance-calc">
+              <label for="dest-select">选择从向阳汽车旅馆出发的目的地：</label>
+              <div class="calc-controls">
+                <select id="dest-select">
+                  <option value="mesa">彩绘台地杂货铺</option>
+                  <option value="interstate">40号州际公路东行入口</option>
+                  <option value="flagstaff">弗拉格斯塔夫市中心</option>
+                  <option value="home">返回家中</option>
+                </select>
+                <button type="button" id="calc-route-btn" class="btn-calc">计算车程</button>
+              </div>
+              <div class="calc-result" id="calc-result" aria-live="polite">
+                选择一个城镇并点击“计算车程”，查看 1962 年公路里程表。
+              </div>
+            </div>
+          </div>
+
+          <div class="map-canvas" id="route-map-wrap">
+            <svg viewBox="0 0 540 340" class="route-svg" id="route-svg" role="img" aria-label="1962年19号州道44英里碑地图">
+              <defs>
+                <pattern id="map-grid" width="36" height="36" patternUnits="userSpaceOnUse">
+                  <path d="M 36 0 L 0 0 0 36" fill="none" stroke="rgba(90,70,45,0.14)" stroke-width="1" />
+                </pattern>
+              </defs>
+              <rect width="540" height="340" fill="#E6DAC1" id="map-bg-rect" />
+              <rect width="540" height="340" fill="url(#map-grid)" />
+
+              <path d="M20,290 Q110,240 190,275 T360,255 T520,295" fill="none" stroke="rgba(130,90,55,0.28)" stroke-width="1.5" stroke-dasharray="5 4" />
+              <path d="M40,65 Q160,35 280,75 T490,45" fill="none" stroke="rgba(130,90,55,0.28)" stroke-width="1.5" stroke-dasharray="5 4" />
+
+              <path d="M 20 82 L 520 52" fill="none" stroke="#6E7C74" stroke-width="5" stroke-dasharray="10 6" />
+              <text x="382" y="42" fill="#4C5A52" font-family="Noto Sans SC, sans-serif" font-size="11" font-weight="700">40号州际公路（已封闭）</text>
+
+              <path id="highway-path" d="M 30 245 C 120 220, 175 180, 265 180 C 350 180, 420 140, 505 115" fill="none" stroke="#B5482A" stroke-width="5" stroke-linecap="round" />
+
+              <path id="highway-loop-path" d="M 265 180 C 345 110, 430 230, 325 270 C 210 305, 165 215, 265 180 Z" fill="none" stroke="#A61C24" stroke-width="3.5" stroke-dasharray="7 5" opacity="0" />
+
+              <circle cx="88" cy="226" r="6" fill="#2A4D4D" />
+              <text x="64" y="254" fill="#2B241E" font-family="Noto Sans SC, sans-serif" font-size="11" font-weight="600">彩绘台地</text>
+
+              <circle cx="460" cy="128" r="6" fill="#2A4D4D" />
+              <text x="434" y="152" fill="#2B241E" font-family="Noto Sans SC, sans-serif" font-size="11" font-weight="600">荒漠盐滩</text>
+
+              <g id="map-pin-sunward">
+                <circle cx="265" cy="180" r="14" fill="rgba(224,99,46,0.22)" />
+                <circle cx="265" cy="180" r="7" fill="#D93829" stroke="#F7F0E2" stroke-width="2.5" />
+                <text x="192" y="154" fill="#8C2318" font-family="Noto Sans SC, sans-serif" font-size="13" font-weight="700">向阳汽车旅馆（44英里碑）</text>
+              </g>
+
+              <g transform="translate(480, 285)" stroke="#5A4A3A" fill="none" stroke-width="1.4">
+                <circle r="22" />
+                <line x1="0" y1="-26" x2="0" y2="26" />
+                <line x1="-26" y1="0" x2="26" y2="0" />
+                <text x="-5" y="-30" fill="#5A4A3A" stroke="none" font-family="Noto Sans SC, sans-serif" font-size="10">北</text>
+              </g>
+
+              <text x="18" y="324" fill="#6B5C4A" font-family="Noto Serif SC, serif" font-size="11" id="map-footer-stamp">
+                亚利桑那公路局 · 1962年5月修订 · 比例尺 1:250,000
+              </text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         第五幕：入夜 — 摩托罗拉调幅收音机、紫外线日志与显像管电视
+         ========================================================= -->
+    <section id="act-nightfall" class="act act-nightfall" data-act-section="5">
+      <div class="container">
+        <div class="nightfall-intro">
+          <h2 class="section-title">日落之后的 19 号州道</h2>
+          <p class="section-intro">
+            一旦台地沉入夜色，荒漠上的中波信号便能传出数百英里。每间客房都配有一台原装 1962 年
+            摩托罗拉台式调幅收音机。试着转动下方的旋钮——尽管常有住客说，它能收到几十年前就已停播的电台。
+          </p>
+        </div>
+
+        <!-- 1962 摩托罗拉调幅收音机 -->
+        <div class="radio-cabinet" id="radio-cabinet">
+          <div class="radio-top-strip">
+            <span class="radio-brand">MOTOROLA · 金声电子管调幅收音机</span>
+            <span class="radio-tube-status" id="radio-status-led">电子管未预热</span>
+          </div>
+
+          <div class="radio-body">
+            <div class="radio-grille" aria-hidden="true">
+              <div class="grille-slat"></div>
+              <div class="grille-slat"></div>
+              <div class="grille-slat"></div>
+              <div class="grille-slat"></div>
+              <div class="grille-slat"></div>
+              <div class="grille-slat"></div>
+              <div class="grille-slat"></div>
+            </div>
+
+            <div class="radio-face">
+              <div class="radio-dial-window" id="radio-dial-window">
+                <div class="dial-scale">
+                  <span>540</span>
+                  <span>700</span>
+                  <span>900</span>
+                  <span>1100</span>
+                  <span>1300</span>
+                  <span>1500</span>
+                  <span>1600</span>
+                </div>
+                <div class="dial-ticks" aria-hidden="true"></div>
+                <div class="dial-needle" id="radio-needle"></div>
+                <div class="dial-freq-readout" id="radio-freq-readout">580 AM</div>
+              </div>
+
+              <div class="radio-controls-row">
+                <button type="button" class="radio-power-btn" id="radio-power-btn" aria-pressed="false">
+                  电源：关
+                </button>
+                <div class="radio-slider-wrap">
+                  <label for="radio-slider" class="sr-only">调幅频率滑块</label>
+                  <input type="range" id="radio-slider" min="540" max="1600" step="5" value="580" />
+                </div>
+                <div class="radio-presets" aria-label="快捷频段">
+                  <button type="button" class="preset-btn" data-freq="580">580</button>
+                  <button type="button" class="preset-btn" data-freq="890">890</button>
+                  <button type="button" class="preset-btn" data-freq="1120">1120</button>
+                  <button type="button" class="preset-btn" data-freq="1380">1380</button>
+                  <button type="button" class="preset-btn" data-freq="1560">1560</button>
+                </div>
+              </div>
+
+              <div class="radio-transcript" id="radio-transcript" aria-live="polite">
+                <span class="transcript-station" id="transcript-station">接收机待机中</span>
+                <p class="transcript-text" id="transcript-text">
+                  按下“电源”预热电子管，扫描彩绘台地夜空下的调幅波段。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 夜班经理值班记录卡 + 紫外线黑光灯检查台 -->
+        <div class="uv-module" id="uv-module">
+          <div class="uv-header">
+            <div>
+              <h3>夜班经理值班档案卡（1962年10月）</h3>
+              <p>
+                遗留在前台抽屉里的日常维护记录。在普通台灯下一切井井有条——但客房清洁员提到，
+                这些卡片表面沾有奇怪的荧光墨水痕迹。
+              </p>
+            </div>
+            <button type="button" id="uv-toggle-btn" class="uv-btn" aria-pressed="false">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"></path>
+              </svg>
+              <span id="uv-btn-label">开启紫外线验钞黑光灯</span>
+            </button>
+          </div>
+
+          <div class="uv-board" id="uv-board">
+            <div class="uv-beam" id="uv-beam" aria-hidden="true"></div>
+
+            <article class="index-card">
+              <div class="card-stamp">记录 #104 · 泳池维护</div>
+              <h4>深水区排水口与投氯</h4>
+              <p class="card-typed">
+                10月17日：投氯4磅，打捞荒漠飞蛾。水泵压力稳定在 22 PSI。已提醒各位住客入夜后切勿潜近深水排水格栅。
+              </p>
+              <div class="uv-secret" aria-hidden="true">
+                那不是水泵。<br />
+                它每隔 14 秒呼吸一次。<br />
+                去数数格栅上抓着几根手指。
+              </div>
+            </article>
+
+            <article class="index-card">
+              <div class="card-stamp">记录 #108 · 失物招领</div>
+              <h4>前台保险柜代管物品</h4>
+              <p class="card-typed">
+                10月18日：玳瑁眼镜一副、别克车钥匙三串、皮质手提箱一只（缩写 R.H.）、以及早退旅客遗落在床头柜上的十四块手表。
+              </p>
+              <div class="uv-secret" aria-hidden="true">
+                十四块表全部停在 02:17。<br />
+                根本没有人退过房。<br />
+                去查地下锅炉房。
+              </div>
+            </article>
+
+            <article class="index-card">
+              <div class="card-stamp">记录 #112 · 电力巡检</div>
+              <h4>路旁霓虹灯变压器</h4>
+              <p class="card-typed">
+                10月19日（凌晨1:50）：盐滩方向刮来强烈干热静电。总闸跳闸两次。即便拔下配电箱主保险丝，路旁霓虹招牌依然亮着。
+              </p>
+              <div class="uv-secret" aria-hidden="true">
+                电线在 1968 年就被剪断了。<br />
+                为什么它还在嗡嗡作响？<br />
+                别接 15 号房的电话。
+              </div>
+            </article>
+
+            <article class="index-card">
+              <div class="card-stamp">记录 #119 · 值班排班</div>
+              <h4>夜间前台值守</h4>
+              <p class="card-typed">
+                亚瑟·万斯 —— 午夜至次日 08:00。<br />
+                伊芙琳·万斯 —— 客房整理。<br />
+                务必以温暖笑容迎接晚归车主，并代为保管车钥匙至天明。
+              </p>
+              <div class="uv-secret" aria-hidden="true">
+                亚瑟死于 1962 年 10 月 19 日。<br />
+                刚才给你办入住的是谁？<br />
+                他笑的时候，看他的牙齿。
+              </div>
+            </article>
+          </div>
+          <p class="uv-hint" id="uv-hint">开启紫外线黑光灯后，将鼠标移动到各张卡片上方照射隐藏字迹。</p>
+        </div>
+
+        <!-- 1962 真力时显像管电视（3频道停车场实时画面） -->
+        <div class="zenith-module" id="zenith-module">
+          <div class="zenith-copy">
+            <h3>12号房电视 — 真力时显像管电视机</h3>
+            <p>
+              住在尽头 12 号房的旅客反映，这台电视只收得到旅馆内部传出的画面。切换下方的 VHF 频道按钮，
+              并滑动兔耳天线微调杆，清除 3 频道上的雪花噪点。
+            </p>
+            <div class="tv-channel-desc" id="tv-channel-desc">
+              <strong>3 频道 — 庭院实时信号：</strong>充满噪点的黑白庭院泳池监控画面。可向阳汽车旅馆从未安装过任何摄像头。
+            </div>
+          </div>
+
+          <div class="zenith-cabinet">
+            <div class="tv-bezel">
+              <canvas id="zenith-canvas" width="440" height="310" aria-label="1962年真力时黑白显像管电视画面"></canvas>
+              <div class="tv-scanlines" aria-hidden="true"></div>
+              <div class="tv-hud-tag" id="tv-hud-tag">CH 03 · 02:17 AM</div>
+            </div>
+            <div class="tv-controls-panel">
+              <div class="tv-dial-group">
+                <span class="tv-ctrl-label">VHF 频道切换</span>
+                <div class="tv-channel-btns">
+                  <button type="button" class="tv-ch-btn" data-ch="2">2频道</button>
+                  <button type="button" class="tv-ch-btn active" data-ch="3">3频道</button>
+                  <button type="button" class="tv-ch-btn" data-ch="4">4频道</button>
+                  <button type="button" class="tv-ch-btn" data-ch="7">7频道</button>
+                  <button type="button" class="tv-ch-btn" data-ch="0">关闭</button>
+                </div>
+              </div>
+              <div class="tv-antenna-group">
+                <label for="tv-antenna-slider" class="tv-ctrl-label">兔耳天线信号微调</label>
+                <input type="range" id="tv-antenna-slider" min="0" max="100" value="28" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         第六幕：凌晨 02:17 — B翼走廊与黄铜猫眼窥视
+         ========================================================= -->
+    <section id="act-corridor" class="act act-corridor" data-act-section="6">
+      <div class="container">
+        <div class="corridor-header">
+          <h2 class="section-title">B翼走廊 · 午夜静音时段</h2>
+          <div class="corridor-clock" id="corridor-clock">凌晨 02:17</div>
+          <p class="section-intro">
+            你听到门外的脚步声了吗？在解开防盗链之前，请先把眼睛贴上黄铜猫眼看一看。
+            请务必小心——有些房间不喜欢被人偷看第二次。
+          </p>
+        </div>
+
+        <div class="doors-grid" id="doors-grid">
+          <article class="motel-door" data-door="4">
+            <div class="door-plate">04</div>
+            <div class="peephole-ring">
+              <button type="button" class="peephole-btn" data-door-open="4" aria-label="透过04号房猫眼窥视">
+                <span class="peephole-glass"></span>
+                <span class="peephole-label">窥视</span>
+              </button>
+            </div>
+            <div class="door-chain" aria-hidden="true"></div>
+            <p class="door-status" id="door-status-4">门内隐约传来电视雪花声。</p>
+          </article>
+
+          <article class="motel-door" data-door="7">
+            <div class="door-plate">07</div>
+            <div class="peephole-ring">
+              <button type="button" class="peephole-btn" data-door-open="7" aria-label="透过07号房猫眼窥视">
+                <span class="peephole-glass"></span>
+                <span class="peephole-label">窥视</span>
+              </button>
+            </div>
+            <div class="door-chain" aria-hidden="true"></div>
+            <p class="door-status" id="door-status-7">“请勿打扰”挂牌湿漉漉的。</p>
+          </article>
+
+          <article class="motel-door" data-door="11">
+            <div class="door-plate">11</div>
+            <div class="peephole-ring">
+              <button type="button" class="peephole-btn" data-door-open="11" aria-label="透过11号房猫眼窥视">
+                <span class="peephole-glass"></span>
+                <span class="peephole-label">窥视</span>
+              </button>
+            </div>
+            <div class="door-chain" aria-hidden="true"></div>
+            <p class="door-status" id="door-status-11">门缝飘出冰冷的泳池氯水味。</p>
+          </article>
+
+          <article class="motel-door motel-door-15" data-door="15">
+            <div class="door-plate door-plate-15">15</div>
+            <div class="peephole-ring">
+              <button type="button" class="peephole-btn" data-door-open="15" aria-label="透过15号房猫眼窥视">
+                <span class="peephole-glass"></span>
+                <span class="peephole-label">窥视</span>
+              </button>
+            </div>
+            <div class="door-chain broken" aria-hidden="true"></div>
+            <p class="door-status" id="door-status-15">宣传册上根本没有这扇门。</p>
+          </article>
+        </div>
+
+        <!-- 圆形鱼眼猫眼窥视台 -->
+        <div class="peephole-stage" id="peephole-stage" hidden>
+          <div class="peephole-stage-bar">
+            <span id="peephole-active-title">正在透过黄铜猫眼窥视 — 04号房</span>
+            <button type="button" id="peephole-close-btn" class="btn-step-back">退后离开房门</button>
+          </div>
+          <div class="peephole-lens-wrap" id="peephole-lens-wrap">
+            <div class="peephole-circle" id="peephole-circle">
+              <img src="assets/peephole-room.jpg" alt="透过旅馆门猫眼看到的昏暗房间" id="peephole-img" class="peephole-img" />
+              <div class="peephole-overlay-fx" id="peephole-overlay-fx"></div>
+              <div class="peephole-eye-scare" id="peephole-eye-scare" aria-hidden="true">
+                <div class="scare-iris"><div class="scare-pupil"></div></div>
+              </div>
+              <div class="peephole-glass-glare" aria-hidden="true"></div>
+            </div>
+          </div>
+          <p class="peephole-caption" id="peephole-caption"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         第七幕：锅炉房暗室拍立得、入住陷阱与反抗的配电箱
+         ========================================================= -->
+    <section id="act-darkroom" class="act act-darkroom" data-act-section="7">
+      <div class="container">
+        <div class="darkroom-head">
+          <h2 class="section-title">锅炉房暗室打捞出的底片</h2>
+          <p class="section-intro">
+            在前台后方的红色安全灯显影槽里，漂浮着四张尚未显影的拍立得相纸。
+            点击每一张漆黑的相纸，将它从显影液中夹出，看看画面里浮现出了什么。
+          </p>
+        </div>
+
+        <div class="polaroid-tray" id="polaroid-tray">
+          <button type="button" class="polaroid-card" data-polaroid="0" aria-label="显影第一张拍立得">
+            <div class="polaroid-frame">
+              <img src="assets/polaroid-deepend.jpg" alt="闪光灯下排干的泳池深水区瓷砖与向上抓挠的泥手印" class="polaroid-img" />
+              <div class="polaroid-chemical"><span>点击显影</span></div>
+            </div>
+            <div class="polaroid-note" data-alt-note="他们不是在往外爬。是有东西把人拖了下去。">
+              1962年10月19日 — 泳池放干，深水瓷砖上发现抓痕。
+            </div>
+          </button>
+
+          <button type="button" class="polaroid-card" data-polaroid="1" aria-label="显影第二张拍立得">
+            <div class="polaroid-frame">
+              <img src="assets/polaroid-desk.jpg" alt="午夜闪光灯拍下的空荡旅馆前台与破裂玻璃后的苍白人影" class="polaroid-img" />
+              <div class="polaroid-chemical"><span>点击显影</span></div>
+            </div>
+            <div class="polaroid-note" data-alt-note="他现在就站在玻璃后面看着你。">
+              1962年10月19日 — 凌晨 02:17 的前台。
+            </div>
+          </button>
+
+          <button type="button" class="polaroid-card" data-polaroid="2" aria-label="显影第三张拍立得">
+            <div class="polaroid-frame">
+              <img src="assets/hero-sunward-night.jpg" alt="浓雾笼罩的废弃汽车旅馆、血红霓虹与泳池边的黑影" class="polaroid-img" />
+              <div class="polaroid-chemical"><span>点击显影</span></div>
+            </div>
+            <div class="polaroid-note" data-alt-note="别看泳池边站着的那个人。">
+              1962年10月20日 — 盐雾涌进庭院之后。
+            </div>
+          </button>
+
+          <button type="button" class="polaroid-card" data-polaroid="3" aria-label="显影第四张拍立得">
+            <div class="polaroid-frame">
+              <img src="assets/climax-hallway.jpg" alt="昏暗阴森的1960年代旅馆走廊与尽头红光" class="polaroid-img" />
+              <div class="polaroid-chemical"><span>点击显影</span></div>
+            </div>
+            <div class="polaroid-note" data-alt-note="就在你身后。">
+              今天 — 就在你的房门外。
+            </div>
+          </button>
+        </div>
+
+        <!-- 心理操控式“快速入住登记卡” -->
+        <div class="trap-card" id="trap-card">
+          <div class="trap-stamp-overlay" id="trap-stamp-overlay" aria-hidden="true">
+            已办理入住<br />15 号 房<br />禁止退房
+          </div>
+
+          <div class="trap-header">
+            <h3>快速入住登记卡 — 确认您的留宿</h3>
+            <p id="trap-subtitle">您已经驶过 44 号里程碑，无法掉头。请确认您的房号分配。</p>
+          </div>
+
+          <form id="trap-form" class="trap-form" autocomplete="off">
+            <div class="trap-grid">
+              <div class="trap-field">
+                <label for="trap-name">住客全名</label>
+                <input type="text" id="trap-name" placeholder="其实我们已经知道了……" />
+              </div>
+
+              <div class="trap-field">
+                <label for="trap-guests">车内同行人数</label>
+                <select id="trap-guests">
+                  <option value="1">1 位旅客（独自一人）</option>
+                  <option value="2">2 位旅客</option>
+                  <option value="3">家庭出行（3–4人）</option>
+                </select>
+                <small class="trap-whisper" id="trap-guests-whisper"></small>
+              </div>
+
+              <div class="trap-field">
+                <label for="trap-checkin">入住日期</label>
+                <input type="text" id="trap-checkin" value="1962年10月19日" readonly />
+              </div>
+
+              <div class="trap-field">
+                <label for="trap-checkout">退房日期</label>
+                <input type="date" id="trap-checkout" value="1962-10-20" />
+                <small class="trap-whisper" id="trap-checkout-whisper"></small>
+              </div>
+            </div>
+
+            <div class="trap-actions">
+              <button type="submit" class="btn-trap-confirm" id="trap-confirm-btn">领取 15 号房钥匙</button>
+              <button type="button" class="btn-trap-cancel" id="trap-cancel-btn">取消并开车离开</button>
+            </div>
+            <p class="trap-log" id="trap-log" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <!-- 锈蚀钢制配电箱（开关会反抗！） -->
+        <div class="breaker-module" id="breaker-module">
+          <div class="breaker-head">
+            <div>
+              <h3>B翼 240V 总配电箱</h3>
+              <p>在走进漆黑的 B 翼走廊前，试着拉掉路旁霓虹招牌或 15 号房的电闸。</p>
+            </div>
+            <div class="breaker-meter" id="breaker-meter">负载：60 赫兹 · 异常电流倒灌</div>
+          </div>
+
+          <div class="breaker-grid" id="breaker-grid">
+            <button type="button" class="breaker-switch on" data-breaker="pool" aria-pressed="true">
+              <span class="br-led"></span>
+              <span class="br-name">深水区水泵</span>
+              <span class="br-state">开启</span>
+            </button>
+            <button type="button" class="breaker-switch on" data-breaker="neon" aria-pressed="true">
+              <span class="br-led"></span>
+              <span class="br-name">庭院霓虹招牌</span>
+              <span class="br-state">开启</span>
+            </button>
+            <button type="button" class="breaker-switch on" data-breaker="lobby" aria-pressed="true">
+              <span class="br-led"></span>
+              <span class="br-name">前台总灯</span>
+              <span class="br-state">开启</span>
+            </button>
+            <button type="button" class="breaker-switch on" data-breaker="corridor" aria-pressed="true">
+              <span class="br-led"></span>
+              <span class="br-name">B翼走廊照明</span>
+              <span class="br-state">开启</span>
+            </button>
+            <button type="button" class="breaker-switch on" data-breaker="ice" aria-pressed="true">
+              <span class="br-led"></span>
+              <span class="br-name">走廊制冰机</span>
+              <span class="br-state">开启</span>
+            </button>
+            <button type="button" class="breaker-switch on breaker-danger" data-breaker="room15" aria-pressed="true">
+              <span class="br-led"></span>
+              <span class="br-name">15号房 / 地下附楼</span>
+              <span class="br-state">开启</span>
+            </button>
+          </div>
+          <p class="breaker-log" id="breaker-log" aria-live="polite">
+            警告：凌晨 02:00 之后切勿让 B 翼走廊陷入黑暗。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         第八幕：B翼漆黑走廊 — 手电筒探索与躲避光束的眼睛
+         ========================================================= -->
+    <section id="act-flashlight" class="act act-flashlight" data-act-section="8">
+      <div class="flashlight-hud">
+        <div class="hud-left">
+          <h2 class="flashlight-title">B翼走廊 · 凌晨 02:17</h2>
+          <p class="flashlight-sub">电闸已跳闸断电。移动鼠标（或手指拖动）挥动你的 1962 年永备手电筒，照亮漆黑的走廊。</p>
+        </div>
+        <div class="hud-right">
+          <div class="battery-meter">
+            <span>电量</span>
+            <div class="battery-bar"><div class="battery-fill" id="battery-fill"></div></div>
+          </div>
+          <button type="button" id="smack-flashlight-btn" class="btn-smack">拍打手电筒</button>
+        </div>
+      </div>
+
+      <div class="flashlight-arena" id="flashlight-arena">
+        <img src="assets/climax-hallway.jpg" alt="漆黑诡异的旅馆尽头走廊" class="corridor-bg-img" />
+
+        <div class="wall-scratch scratch-1">
+          正 正 正 正<br />
+          第 23,414 天<br />
+          依然是 10 月 19 日
+        </div>
+
+        <div class="wall-scratch scratch-2">
+          千万不要接<br />
+          15 号房里的<br />
+          黑色拨盘电话
+        </div>
+
+        <div class="wall-scratch scratch-3">
+          泳池的深水区<br />
+          根本不止 14 英尺。<br />
+          它一直通向地下室。
+        </div>
+
+        <div class="wall-scratch scratch-4">
+          你滑过了所有警告。<br />
+          现在，它已经记住<br />
+          你的脸了。
+        </div>
+
+        <div class="lurking-eyes" id="lurking-eyes" aria-hidden="true">
+          <span class="eye-dot"></span>
+          <span class="eye-dot"></span>
+        </div>
+
+        <a href="#act-climax" class="corridor-door-trigger" id="corridor-door-trigger">
+          <span class="door-trigger-num">15 号 房</span>
+          <span class="door-trigger-cta">推开这扇门 ↓</span>
+        </a>
+
+        <div class="flashlight-mask" id="flashlight-mask" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         第九幕：15号房终章 — 响个不停的拨盘电话与你的个人账单
+         ========================================================= -->
+    <section id="act-climax" class="act act-climax" data-act-section="9">
+      <div class="climax-bg" aria-hidden="true">
+        <img src="assets/climax-hallway.jpg" alt="" class="climax-bg-img" id="climax-bg-img" />
+        <div class="climax-red-wash"></div>
+      </div>
+
+      <div class="container climax-inner">
+        <div class="climax-neon-broken" aria-label="欢迎留下">
+          <span class="broken-off">欢迎</span><span class="broken-on">留</span><span class="broken-flicker">下</span>
+          <span class="broken-sub">15 号房 · 入住手续已生效</span>
+        </div>
+
+        <div class="phone-stage" id="phone-stage">
+          <div class="rotary-phone ringing" id="rotary-phone" aria-hidden="true">
+            <svg viewBox="0 0 240 175" width="220" height="160">
+              <g class="phone-handset" id="phone-handset">
+                <path d="M26 52 C26 24, 214 24, 214 52 C214 68, 198 76, 184 72 L174 56 C150 48, 90 48, 66 56 L56 72 C42 76, 26 68, 26 52 Z" fill="#181516" stroke="#4D2528" stroke-width="2" />
+                <ellipse cx="42" cy="60" rx="16" ry="12" fill="#0D0B0C" />
+                <ellipse cx="198" cy="60" rx="16" ry="12" fill="#0D0B0C" />
+              </g>
+              <path d="M58 68 L182 68 L208 148 C210 156, 202 162, 192 162 L48 162 C38 162, 30 156, 32 148 Z" fill="#141112" stroke="#5A1C20" stroke-width="2" />
+              <rect x="74" y="54" width="16" height="16" rx="3" fill="#2A2022" />
+              <rect x="150" y="54" width="16" height="16" rx="3" fill="#2A2022" />
+              <circle cx="120" cy="116" r="34" fill="#0A0809" stroke="#7A282D" stroke-width="2" />
+              <circle cx="120" cy="116" r="14" fill="#D8CBB8" />
+              <text x="120" y="120" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-size="9" font-weight="700" fill="#1A0A0B">217</text>
+              <circle cx="120" cy="90" r="4.2" fill="#C9B9A3" />
+              <circle cx="137" cy="96" r="4.2" fill="#C9B9A3" />
+              <circle cx="145" cy="113" r="4.2" fill="#C9B9A3" />
+              <circle cx="140" cy="131" r="4.2" fill="#C9B9A3" />
+              <circle cx="124" cy="141" r="4.2" fill="#C9B9A3" />
+              <circle cx="105" cy="138" r="4.2" fill="#C9B9A3" />
+              <circle cx="95" cy="122" r="4.2" fill="#C9B9A3" />
+              <circle cx="98" cy="103" r="4.2" fill="#C9B9A3" />
+              <path d="M144 128 L158 136" stroke="#9B8A76" stroke-width="3" stroke-linecap="round" />
+            </svg>
+          </div>
+
+          <h2 class="climax-heading" id="climax-heading">前台正在呼叫 15 号房</h2>
+          <p class="climax-dialogue" id="climax-dialogue">
+            黑色电木听筒在底座上剧烈震颤。磨砂玻璃窗外，一阵车灯闪烁了一下，随即彻底熄灭。
+          </p>
+
+          <div class="climax-actions" id="climax-actions">
+            <button type="button" class="btn-answer-phone" id="answer-phone-btn">接起听筒</button>
+            <button type="button" class="btn-cut-cord" id="cut-cord-btn">扯断墙上的电话线</button>
+          </div>
+        </div>
+
+        <!-- 实时复写纸旅客账单（真实会话遥测） -->
+        <aside class="guest-receipt" id="guest-receipt" aria-label="向阳汽车旅馆官方旅客账单">
+          <div class="receipt-tear-top" aria-hidden="true"></div>
+          <div class="receipt-head">
+            <div class="receipt-logo">向阳汽车旅馆</div>
+            <div class="receipt-sub">旧 19 号州道 44 英里碑 · 亚利桑那州彩绘台地</div>
+            <div class="receipt-sub">官方旅客入驻账单 — 夜间前台留存联</div>
+          </div>
+
+          <dl class="receipt-rows">
+            <div><dt>住客姓名</dt><dd id="rcpt-name">未登记旅人</dd></div>
+            <div><dt>分配房号</dt><dd id="rcpt-unit">15 号房（已从门外反锁）</dd></div>
+            <div><dt>本地抵达时间</dt><dd id="rcpt-time">--:--</dd></div>
+            <div><dt>在馆停留时长</dt><dd id="rcpt-duration">00分 00秒</dd></div>
+            <div><dt>窗口视口尺寸</dt><dd id="rcpt-viewport">---- × ----</dd></div>
+            <div><dt>已发现的异常线索</dt><dd id="rcpt-clues">0 / 8</dd></div>
+            <div><dt>你试图往上滑回头的次数</dt><dd id="rcpt-turnbacks">0 次</dd></div>
+            <div class="receipt-total"><dt>应付结余</dt><dd>你的车钥匙</dd></div>
+          </dl>
+
+          <p class="receipt-verdict" id="rcpt-verdict">
+            感谢您选择向阳汽车旅馆。您的退房时间已于 1962 年 10 月 19 日上午 11:00 截止。
+          </p>
+
+          <div class="receipt-footer-actions">
+            <button type="button" class="btn-loop-back" id="loop-up-btn">
+              走回庭院停车场（向上返回 —— 二周目异变）
+            </button>
+            <button type="button" class="btn-reset-1962" id="reset-1962-btn">
+              重置时间线至 1962 年 5 月 14 日
+            </button>
+          </div>
+          <div class="receipt-tear-bottom" aria-hidden="true"></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <script src="audio.js"></script>
+  <script src="app-zh.js"></script>
+</body>
+</html>

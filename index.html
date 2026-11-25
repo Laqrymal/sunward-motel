@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="en" data-act="1" data-loop="1">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Sunward Motel — Sunlit Comfort on Route 19 | Est. 1962</title>
+  <meta name="description" content="The Sunward Motel, Milepost 44, State Route 19, Painted Mesa, Arizona. Fourteen air-cooled stucco units, heated kidney swimming pool, and warm Southwest hospitality since May 14, 1962." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Oswald:wght@400;500;600;700&family=Pacifico&family=Special+Elite&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Subtle Atmospheric Overlays (activate progressively with scroll depth) -->
+  <div id="atmosphere-vignette" aria-hidden="true"></div>
+  <div id="film-grain" aria-hidden="true"></div>
+  <div id="scare-flash-layer" aria-hidden="true">
+    <img src="assets/climax-hallway.jpg" alt="" class="flash-img" />
+    <div class="flash-caption" id="flash-caption"></div>
+  </div>
+
+  <!-- =========================================================
+       STICKY VINTAGE MOTEL NAVIGATION & LIVE NEON SIGN
+       ========================================================= -->
+  <header id="motel-nav" class="motel-nav">
+    <div class="nav-inner">
+      <a href="#act-hero" class="brand-crest" aria-label="The Sunward Motel Home">
+        <svg class="starburst-icon" viewBox="0 0 36 36" width="28" height="28" aria-hidden="true">
+          <path d="M18 1 L20.5 13.5 L33 11 L22.5 18 L35 23 L21.5 22 L25 35 L18 24 L11 35 L14.5 22 L1 23 L13.5 18 L3 11 L15.5 13.5 Z" fill="currentColor" />
+        </svg>
+        <div class="brand-lockup">
+          <span class="brand-script" id="nav-brand-name">Sunward</span>
+          <span class="brand-sub" id="nav-brand-sub">MOTEL · RT. 19 · MILE 44</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="#act-postcards" class="nav-link" data-nav="0">Pool &amp; Patio</a>
+        <a href="#act-rooms" class="nav-link" data-nav="1">Rooms &amp; Rates</a>
+        <a href="#act-ledger" class="nav-link" data-nav="2">Guestbook</a>
+        <a href="#act-nightfall" class="nav-link" data-nav="3">Amenities</a>
+        <a href="#act-darkroom" class="nav-link" data-nav="4">Reserve</a>
+      </nav>
+
+      <div class="nav-controls">
+        <div class="neon-sign" id="neon-vacancy" title="Vacancy Status">
+          <span class="neon-dot" aria-hidden="true"></span>
+          <span id="neon-vacancy-text">VACANCY</span>
+        </div>
+
+        <div class="weather-ticker" id="weather-ticker" aria-live="polite">
+          <span id="weather-temp">84°F</span>
+          <span class="ticker-sep">·</span>
+          <span id="weather-cond">CLEAR SKIES</span>
+        </div>
+
+        <button type="button" id="hifi-toggle" class="hifi-btn" aria-pressed="false" title="Toggle 1962 Lobby Hi-Fi Audio">
+          <svg class="hifi-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+            <path class="wave-1" d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path class="wave-2" d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span id="hifi-label">HI-FI OFF</span>
+        </button>
+
+        <a href="zh.html" class="lang-switch" lang="zh-CN" title="切换到中文版">中文</a>
+      </div>
+    </div>
+
+    <!-- Subtle Progress Ruler styled like a highway milepost gauge -->
+    <div class="milepost-bar" aria-hidden="true">
+      <div class="milepost-fill" id="milepost-fill"></div>
+    </div>
+  </header>
+
+  <main id="motel-main">
+
+    <!-- =========================================================
+         ACT I: SUNLIT 1962 ARRIVAL — PRISTINE MOTOR COURT BROCHURE
+         ========================================================= -->
+    <section id="act-hero" class="act act-hero" data-act-section="1">
+      <div class="hero-media-frame">
+        <img src="assets/hero-sunward-day.jpg" alt="The Sunward Motel courtyard and turquoise swimming pool in golden 1962 afternoon sunlight" class="hero-img hero-img-day" id="hero-img-day" />
+        <img src="assets/hero-sunward-night.jpg" alt="" class="hero-img hero-img-night" id="hero-img-night" aria-hidden="true" />
+        <div class="hero-scrim"></div>
+      </div>
+
+      <div class="hero-content container">
+        <h1 class="hero-title" id="hero-title">THE SUNWARD MOTEL</h1>
+
+        <div class="hero-badge-row">
+          <span class="vintage-stamp" id="hero-stamp">EST. MAY 14, 1962 · PAINTED MESA, ARIZONA</span>
+          <span class="aaa-diamond" id="hero-aaa">AAA APPROVED MOTOR COURT</span>
+        </div>
+
+        <p class="hero-lead" id="hero-lead">
+          Drive right up to your turquoise door on scenic State Route 19. Fourteen air-cooled stucco units,
+          a sparkling heated kidney pool, free crushed ice, and crisp AM radio in every room — all from
+          <strong>$6.50 a night</strong>.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#act-rooms" class="btn-primary" id="hero-cta-primary">Inspect Our Units &amp; Rates</a>
+          <button type="button" class="btn-secondary" id="hero-hifi-cta">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"></circle>
+              <polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"></polygon>
+            </svg>
+            <span id="hero-hifi-cta-text">Turn On 1962 Lobby Hi-Fi</span>
+          </button>
+        </div>
+
+        <dl class="hero-facts">
+          <div>
+            <dt>Location</dt>
+            <dd id="fact-location">Milepost 44, State Route 19</dd>
+          </div>
+          <div>
+            <dt>Proprietors</dt>
+            <dd id="fact-proprietors">Arthur &amp; Evelyn Vance</dd>
+          </div>
+          <div>
+            <dt>Check-Out</dt>
+            <dd id="fact-checkout">11:00 AM Promptly</dd>
+          </div>
+          <div>
+            <dt>Telephone</dt>
+            <dd id="fact-phone">Painted Mesa 217</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="amenity-ribbon" aria-label="Motel Amenities">
+        <div class="ribbon-track" id="ribbon-track">
+          <span>REFRIGERATED AIR</span>
+          <span class="star-dot">✦</span>
+          <span>HEATED KIDNEY POOL</span>
+          <span class="star-dot">✦</span>
+          <span>FREE TELEVISION</span>
+          <span class="star-dot">✦</span>
+          <span>COFFEE SHOP ADJOINING</span>
+          <span class="star-dot">✦</span>
+          <span>PARK AT YOUR DOOR</span>
+          <span class="star-dot">✦</span>
+          <span>QUIET DESERT NIGHTS</span>
+          <span class="star-dot">✦</span>
+          <span>MAGIC FINGERS BEDS</span>
+          <span class="star-dot">✦</span>
+          <span>CLEAN LINENS DAILY</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ACT II: POOLSIDE PARADISE & INTERACTIVE LINEN POSTCARDS
+         ========================================================= -->
+    <section id="act-postcards" class="act act-postcards" data-act-section="2">
+      <div class="container">
+        <div class="section-header-split">
+          <div class="header-col">
+            <h2 class="section-title">Wish You Were Here</h2>
+            <p class="section-intro">
+              Every guest receives three complimentary linen postcards at check-in, stamped and mailed
+              from our front desk at no charge. Click any postcard below to flip it over and read what
+              folks traveling Route 19 wrote home this season.
+            </p>
+          </div>
+
+          <!-- Interactive Pool Thermometer Plaque -->
+          <aside class="pool-plaque" aria-label="Poolside Depth and Temperature Gauge">
+            <div class="plaque-screws" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+            <div class="plaque-header">
+              <h3>HEATED KIDNEY POOL</h3>
+              <span class="plaque-hours">OPEN 7 AM – MIDNIGHT</span>
+            </div>
+            <div class="plaque-depths">
+              <span>SHALLOW: 3 FT</span>
+              <span>CENTER: 8 FT</span>
+              <span class="depth-odd" id="depth-marker">DEEP END: 14 FT</span>
+            </div>
+            <div class="thermo-row">
+              <div class="thermo-readout">
+                <span class="thermo-label">WATER TEMP</span>
+                <strong class="thermo-val" id="pool-temp-val">78°F</strong>
+              </div>
+              <button type="button" class="btn-plaque" id="pool-dip-btn">Check Pool Temp</button>
+            </div>
+            <p class="plaque-note" id="pool-temp-note">
+              Filtered hourly by our underground pump house. Towels provided at Office.
+            </p>
+          </aside>
+        </div>
+
+        <!-- 3 Interactive 3D Flip Postcards -->
+        <div class="postcard-grid">
+          <!-- Postcard 1: Wholesome -->
+          <article class="postcard" data-postcard="0" tabindex="0" role="button" aria-pressed="false" aria-label="Flip Postcard 1: The Sunward Swimming Pool">
+            <div class="postcard-inner">
+              <div class="postcard-front">
+                <img src="assets/postcard-pool.jpg" alt="Sunlit 1962 turquoise kidney swimming pool at the Sunward Motel" />
+                <div class="postcard-caption">
+                  <span>Poolside Leisure — The Sunward Motel</span>
+                  <span class="flip-cue">Click to flip ↻</span>
+                </div>
+              </div>
+              <div class="postcard-back">
+                <div class="pc-left">
+                  <p class="pc-handwriting">
+                    July 18, 1962 —<br />
+                    Dearest Sis, we stopped at the sweetest motor court just past Painted Mesa! The pool
+                    water is warm as bathwater and Evelyn brought us cold lemonade right to our chairs.
+                    Lou says it's the cleanest place between Albuquerque and Flagstaff. Home Sunday!
+                  </p>
+                  <p class="pc-sign">— Love, Betty &amp; Lou</p>
+                </div>
+                <div class="pc-right">
+                  <div class="pc-stamp">
+                    <span class="stamp-val">4¢</span>
+                    <span class="stamp-txt">U.S. POSTAGE</span>
+                  </div>
+                  <div class="pc-postmark">PAINTED MESA, AZ<br />JUL 19 1962</div>
+                  <div class="pc-address">
+                    <span>Mrs. Clara Miller</span>
+                    <span>412 Elm Terrace</span>
+                    <span>Wichita, Kansas</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Postcard 2: Slightly Off -->
+          <article class="postcard" data-postcard="1" tabindex="0" role="button" aria-pressed="false" aria-label="Flip Postcard 2: Starlight Coffee Shop">
+            <div class="postcard-inner">
+              <div class="postcard-front">
+                <img src="assets/postcard-diner.jpg" alt="Mid-century roadside diner glowing warmly at dusk" />
+                <div class="postcard-caption">
+                  <span>Starlight Coffee Shop — Next Door</span>
+                  <span class="flip-cue">Click to flip ↻</span>
+                </div>
+              </div>
+              <div class="postcard-back">
+                <div class="pc-left">
+                  <p class="pc-handwriting">
+                    Sept 29, 1962 —<br />
+                    Best cherry pie on Route 19 and the jukebox plays Patsy Cline for a nickel. Our
+                    Plymouth threw a fan belt pulling in, so Arthur kindly held it in his shed till the
+                    parts truck arrives.
+                  </p>
+                  <p class="pc-handwriting pc-cramped">
+                    Wait—he told us Tuesday the truck comes Thursday. Today is Thursday and the calendar
+                    behind the counter still says Tuesday. Tell Mom we are in Room 9.
+                  </p>
+                </div>
+                <div class="pc-right">
+                  <div class="pc-stamp">
+                    <span class="stamp-val">4¢</span>
+                    <span class="stamp-txt">U.S. POSTAGE</span>
+                  </div>
+                  <div class="pc-postmark">UNPOSTED<br />HELD AT DESK</div>
+                  <div class="pc-address">
+                    <span>Mr. R. Henderson</span>
+                    <span>88 Oak Ridge Rd</span>
+                    <span>Tulsa, Oklahoma</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Postcard 3: Distinctly Suspicious -->
+          <article class="postcard" data-postcard="2" tabindex="0" role="button" aria-pressed="false" aria-label="Flip Postcard 3: Scenic Route 19 at Sunset">
+            <div class="postcard-inner">
+              <div class="postcard-front">
+                <img src="assets/postcard-highway.jpg" alt="Empty two-lane desert highway stretching straight toward red mesas at dusk" />
+                <div class="postcard-caption">
+                  <span>Golden Hour on State Route 19</span>
+                  <span class="flip-cue">Click to flip ↻</span>
+                </div>
+              </div>
+              <div class="postcard-back pc-stained">
+                <div class="pc-left">
+                  <p class="pc-handwriting pc-shaky">
+                    Oct 19, 1962 —<br />
+                    If anyone finds this under the carpet in 7, DO NOT LET HIM TAKE YOUR KEYS.
+                    We drove east at 65 mph for two full hours and passed Milepost 44 three times.
+                    The neon sign doesn't turn off. And whatever you do, do not look down into the
+                    deep end drain after 2:17. There is no water down there.
+                  </p>
+                </div>
+                <div class="pc-right">
+                  <div class="pc-stamp pc-stamp-torn">
+                    <span class="stamp-val">??</span>
+                    <span class="stamp-txt">RETURNED</span>
+                  </div>
+                  <div class="pc-postmark pc-postmark-red">OCT 19 1962<br />02:17 AM</div>
+                  <div class="pc-address">
+                    <span>SHERIFF DEPT</span>
+                    <span>PAINTED MESA</span>
+                    <span><del>ARIZONA</del></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ACT II-B: STARLIGHT COFFEE SHOP — 1962 MENU & WALLBOX JUKEBOX
+         ========================================================= -->
+    <section id="act-diner" class="act act-diner" data-act-section="2">
+      <div class="container">
+        <div class="diner-head">
+          <h2 class="section-title">Starlight Coffee Shop · Adjoining</h2>
+          <p class="section-intro">
+            Step across the breezeway for hot skillet breakfasts, hand-spun malts, and fresh desert
+            cherry pie served 24 hours a day. Tap any menu dish to build your guest check, or drop a
+            virtual nickel in the booth Seeburg Wallbox.
+          </p>
+        </div>
+
+        <div class="diner-grid">
+          <!-- Interactive 1962 Diner Menu & Waitress Ticket -->
+          <div class="diner-menu-board">
+            <div class="menu-header-strip">
+              <span>BLUE PLATE &amp; FOUNTAIN SPECIALS</span>
+              <span>OPEN 24 HOURS</span>
+            </div>
+            <div class="menu-items" id="diner-menu-items">
+              <button type="button" class="menu-item-btn" data-dish="Mesa Stack Hotcakes" data-price="0.65">
+                <span class="dish-name">Mesa Stack Hotcakes (3) &amp; Warm Syrup</span>
+                <span class="dish-price">$0.65</span>
+              </button>
+              <button type="button" class="menu-item-btn" data-dish="Painted Mesa Cherry Pie" data-price="0.35">
+                <span class="dish-name">Homemade Painted Mesa Cherry Pie (à la mode +10¢)</span>
+                <span class="dish-price">$0.35</span>
+              </button>
+              <button type="button" class="menu-item-btn" data-dish="Route 19 Patty Melt" data-price="0.85">
+                <span class="dish-name">Route 19 Grilled Patty Melt &amp; Pickle Spear</span>
+                <span class="dish-price">$0.85</span>
+              </button>
+              <button type="button" class="menu-item-btn" data-dish="Bottomless Counter Coffee" data-price="0.15">
+                <span class="dish-name">Bottomless Counter Coffee (Freshly Brewed)</span>
+                <span class="dish-price">$0.15</span>
+              </button>
+              <button type="button" class="menu-item-btn menu-item-odd" data-dish="Night Manager's Special" data-price="0.00">
+                <span class="dish-name">Night Manager's Late Special (Served After 2:00 AM)</span>
+                <span class="dish-price">ON THE HOUSE</span>
+              </button>
+            </div>
+
+            <div class="waitress-check" id="waitress-check">
+              <div class="check-top">
+                <span>GUEST CHECK #0442</span>
+                <span>SERVER: EVELYN</span>
+              </div>
+              <ul class="check-list" id="check-list">
+                <li class="check-empty">Tap dishes above to add to your counter ticket...</li>
+              </ul>
+              <div class="check-total-row">
+                <span>TOTAL DUE</span>
+                <strong id="check-total">$0.00</strong>
+              </div>
+              <div class="check-actions">
+                <button type="button" class="btn-diner-order" id="diner-order-btn">Ring Counter Bell</button>
+                <button type="button" class="btn-diner-clear" id="diner-clear-btn">Clear</button>
+              </div>
+              <p class="check-note" id="diner-order-note"></p>
+            </div>
+          </div>
+
+          <!-- Interactive Seeburg Booth Wallbox Jukebox -->
+          <div class="jukebox-box">
+            <div class="jukebox-chrome-top">
+              <span class="jb-badge">SEEBURG · 100 SELECTIONS</span>
+              <span class="jb-coin">5¢ PLAY · FREE FOR GUESTS</span>
+            </div>
+            <div class="jb-strips" id="jb-strips">
+              <button type="button" class="jb-song" data-jb="A1">
+                <span class="jb-code">A1</span>
+                <span class="jb-title">Painted Mesa Sunset — The Sunbeams (1961)</span>
+              </button>
+              <button type="button" class="jb-song" data-jb="A2">
+                <span class="jb-code">A2</span>
+                <span class="jb-title">Route 19 Highway Boogie — Ray Dawson</span>
+              </button>
+              <button type="button" class="jb-song" data-jb="B1">
+                <span class="jb-code">B1</span>
+                <span class="jb-title">Velvet Moon Over Salt Flats — Clara Lane</span>
+              </button>
+              <button type="button" class="jb-song" data-jb="B2">
+                <span class="jb-code">B2</span>
+                <span class="jb-title">Midnight at Milepost 44 — Unknown Pressing</span>
+              </button>
+              <button type="button" class="jb-song jb-song-odd" data-jb="C1">
+                <span class="jb-code">C1</span>
+                <span class="jb-title">Don't Leave Your Headlights On — [B-Side]</span>
+              </button>
+              <button type="button" class="jb-song jb-song-odd" data-jb="C2">
+                <span class="jb-code">C2</span>
+                <span class="jb-title">[LABEL SCRATCHED OFF · PLAYS AT 33 RPM]</span>
+              </button>
+            </div>
+            <div class="jb-now-playing" id="jb-now-playing" aria-live="polite">
+              <span class="jb-np-label">WALLBOX READY</span>
+              <p class="jb-np-lyric" id="jb-np-lyric">Select any title strip to spin a 45 RPM record in the diner.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ACT III: ACCOMMODATIONS & THE FRONT-DESK BRASS KEY RACK
+         ========================================================= -->
+    <section id="act-rooms" class="act act-rooms" data-act-section="3">
+      <div class="container">
+        <div class="rooms-intro-grid">
+          <div class="rooms-photo-wrap">
+            <img src="assets/room-vintage.jpg" alt="1962 Sunward Motel room interior with walnut paneling, mustard bedspread, and Bakelite rotary phone" />
+            <div class="photo-plate-caption">
+              <span>Unit 02 — The Cactus Double · Refrigerated Air &amp; Starburst Clock</span>
+              <span class="clock-note" id="room-clock-note">Clock reads 4:15 PM</span>
+            </div>
+          </div>
+
+          <div class="rooms-copy-col">
+            <h2 class="section-title">Spotless Comfort, Every Unit</h2>
+            <p class="section-intro">
+              Each of our fourteen ground-floor rooms features genuine walnut paneling, crisp percale
+              linens, a private ceramic bath, and direct telephone connection to Arthur at the Night Desk.
+            </p>
+            <ul class="comfort-checklist">
+              <li>Fresh percale sheets pressed every morning before dawn</li>
+              <li>Complimentary Motorola AM radio on every nightstand</li>
+              <li>Individual steam radiator &amp; refrigerated desert cooler</li>
+              <li>Solid brass deadbolt on every door <span class="subtle-odd">(locks from the outside for guest security)</span></li>
+              <li class="subtle-odd-line">Please do not unplug the bedside clock or move the dresser away from the east wall</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Interactive Wooden Key Pegboard -->
+        <div class="keyrack-module">
+          <div class="keyrack-header">
+            <div>
+              <h3>Front Desk Key Rack — Inspect Any Room</h3>
+              <p>Click a hanging vintage key tag to pull its 1962 rate card and housekeeping sheet.</p>
+            </div>
+            <div class="keyrack-tally" id="keyrack-tally">INSPECTED: 0 / 15 UNITS</div>
+          </div>
+
+          <div class="keyrack-layout">
+            <div class="pegboard" id="key-pegboard" role="list" aria-label="Motel Room Key Pegboard">
+              <!-- Populated by app.js with 15 authentic vintage diamond key fobs -->
+            </div>
+
+            <div class="room-folio" id="room-folio" aria-live="polite">
+              <div class="folio-top">
+                <span class="folio-unit" id="folio-unit">UNIT 02</span>
+                <span class="folio-rate" id="folio-rate">$6.50 / NIGHT</span>
+              </div>
+              <h4 class="folio-name" id="folio-name">The Cactus Double</h4>
+              <div class="folio-status" id="folio-status">STATUS: VACANT &amp; READY</div>
+              <p class="folio-desc" id="folio-desc">
+                Bright east-facing motor-court unit with one full-size spring mattress, turquoise tiled
+                shower, and view of the heated kidney pool. Magic Fingers massage unit accepts quarters.
+              </p>
+              <div class="folio-note-box">
+                <span class="folio-note-label">HOUSEKEEPING &amp; MANAGEMENT NOTE:</span>
+                <p id="folio-note">Fresh soap placed on sink. Venetian blinds dusted. Ready for arrival.</p>
+              </div>
+              <div class="folio-actions">
+                <button type="button" class="btn-folio" id="folio-rattle-btn">Test Key &amp; Check Notes</button>
+                <span class="folio-extra" id="folio-extra"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Motorist Testimonials & Overly Polite Manager Replies -->
+        <div class="reviews-wall">
+          <div class="reviews-head">
+            <h3>What Route 19 Travelers Are Saying</h3>
+            <p>Excerpts from our 1962 lobby comment box and AAA Motor Club mail-in cards.</p>
+          </div>
+          <div class="reviews-grid">
+            <article class="review-clip">
+              <div class="review-stars">★★★★★ · JUNE 1962</div>
+              <blockquote>"Spotless turquoise tile, ice-cold refrigerated air, and the kindest hosts in Arizona. Arthur even checked our tire pressure before we set out!"</blockquote>
+              <cite>— Walter &amp; Jean Briggs, Unit 02</cite>
+              <button type="button" class="btn-reply-toggle" data-reply-toggle>Read Management Reply</button>
+              <p class="manager-reply" hidden>
+                <strong>Arthur Vance replied:</strong> Always our pleasure, Walter! We are delighted you departed before October.
+              </p>
+            </article>
+
+            <article class="review-clip">
+              <div class="review-stars">★★★★☆ · AUGUST 1962</div>
+              <blockquote>"Wonderful cherry pie next door. Only complaint is a deep rhythmic thumping beneath the bathroom floor around 2 AM—felt almost like a heartbeat."</blockquote>
+              <cite>— Raymond Bell, Unit 04</cite>
+              <button type="button" class="btn-reply-toggle" data-reply-toggle>Read Management Reply</button>
+              <p class="manager-reply" hidden>
+                <strong>Arthur Vance replied:</strong> Simply our underground pool pump breathing, Mr. Bell! Please do not put your ear to the drain next visit.
+              </p>
+            </article>
+
+            <article class="review-clip">
+              <div class="review-stars">★★★☆☆ · SEPTEMBER 1962</div>
+              <blockquote>"Room 8 was neat as a pin, though when I shaved in the morning the bathroom mirror showed a dark hallway instead of my face. Also my watch stopped at 2:17."</blockquote>
+              <cite>— Frankie DeLuca, Unit 08</cite>
+              <button type="button" class="btn-reply-toggle" data-reply-toggle>Read Management Reply</button>
+              <p class="manager-reply" hidden>
+                <strong>Arthur Vance replied:</strong> We have since replaced the silvering on Unit 8's glass and collected fourteen stopped watches for safekeeping.
+              </p>
+            </article>
+
+            <article class="review-clip review-clip-odd">
+              <div class="review-stars">★★★★★ · OCTOBER 19, 1962</div>
+              <blockquote>"I never want to leave. My car does not need to leave. The water in the deep end is very warm if you stop struggling. Five stars. — [Edited by Management]"</blockquote>
+              <cite>— R. Henderson, Unit 09 (Still Checked In)</cite>
+              <button type="button" class="btn-reply-toggle" data-reply-toggle>Read Management Reply</button>
+              <p class="manager-reply" hidden>
+                <strong>Arthur Vance replied:</strong> Thank you for the five stars, Robert! Your Plymouth is safe in the shed forever.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ACT IV: DUSK ON ROUTE 19 — THE 1962 GUEST REGISTER & MAP
+         ========================================================= -->
+    <section id="act-ledger" class="act act-ledger" data-act-section="4">
+      <div class="container">
+        <div class="ledger-head">
+          <h2 class="section-title">The 1962 Guest Register</h2>
+          <p class="section-intro">
+            Over four hundred families, salesmen, and cross-country travelers signed our lobby book
+            between May and October of 1962. Browse the register by season — or sign your name below
+            so Arthur knows to leave the porch light burning.
+          </p>
+        </div>
+
+        <!-- Interactive Cloth-Bound Guestbook -->
+        <div class="guestbook-shell">
+          <div class="guestbook-tabs" role="tablist" aria-label="Guestbook Seasons">
+            <button type="button" class="gb-tab active" role="tab" aria-selected="true" data-gb-page="spring">May – July 1962</button>
+            <button type="button" class="gb-tab" role="tab" aria-selected="false" data-gb-page="lateSummer">Aug – Sept 1962</button>
+            <button type="button" class="gb-tab gb-tab-warn" role="tab" aria-selected="false" data-gb-page="october">October 1962</button>
+          </div>
+
+          <div class="guestbook-paper">
+            <div class="ledger-table-wrap">
+              <table class="ledger-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Guest Name</th>
+                    <th>Home Town</th>
+                    <th>Auto &amp; Plate</th>
+                    <th>Unit</th>
+                    <th>Check-Out / Remarks</th>
+                  </tr>
+                </thead>
+                <tbody id="ledger-tbody">
+                  <!-- Populated by app.js -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Interactive Sign-In Bar -->
+            <form id="register-sign-form" class="register-form" autocomplete="off">
+              <div class="reg-field">
+                <label for="reg-name">Your Name</label>
+                <input type="text" id="reg-name" placeholder="e.g. Harold Vance" maxlength="34" required />
+              </div>
+              <div class="reg-field">
+                <label for="reg-city">Hometown</label>
+                <input type="text" id="reg-city" placeholder="e.g. Phoenix, AZ" maxlength="28" />
+              </div>
+              <div class="reg-field">
+                <label for="reg-car">Automobile</label>
+                <input type="text" id="reg-car" placeholder="e.g. '61 Ford Galaxie" maxlength="24" />
+              </div>
+              <button type="submit" class="btn-ledger" id="reg-submit-btn">Sign Register</button>
+            </form>
+            <div class="register-feedback" id="register-feedback" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <!-- Interactive Fold-Out Highway Map & Distance Calculator -->
+        <div class="map-module">
+          <div class="map-copy">
+            <h3>Finding Us on Old State Route 19</h3>
+            <p>
+              Take the Painted Mesa turnoff eleven miles south of the highway junction. Watch for our
+              glowing turquoise-and-coral arrow at Milepost 44. Need directions back to the Interstate?
+              Use our handy desert mileage calculator.
+            </p>
+
+            <div class="distance-calc">
+              <label for="dest-select">Select Destination From Sunward Motel:</label>
+              <div class="calc-controls">
+                <select id="dest-select">
+                  <option value="mesa">Painted Mesa General Store</option>
+                  <option value="interstate">Interstate 40 Eastbound Ramp</option>
+                  <option value="flagstaff">Flagstaff Downtown</option>
+                  <option value="home">Back Home</option>
+                </select>
+                <button type="button" id="calc-route-btn" class="btn-calc">Calculate Drive Time</button>
+              </div>
+              <div class="calc-result" id="calc-result" aria-live="polite">
+                Select a town and click Calculate for current 1962 road mileage.
+              </div>
+            </div>
+          </div>
+
+          <div class="map-canvas" id="route-map-wrap">
+            <!-- Authentic Vintage Fold-Out Road Map SVG (Crisp Geometric Cartography) -->
+            <svg viewBox="0 0 540 340" class="route-svg" id="route-svg" role="img" aria-label="1962 State Route 19 road map showing Milepost 44">
+              <defs>
+                <pattern id="map-grid" width="36" height="36" patternUnits="userSpaceOnUse">
+                  <path d="M 36 0 L 0 0 0 36" fill="none" stroke="rgba(90,70,45,0.14)" stroke-width="1" />
+                </pattern>
+              </defs>
+              <rect width="540" height="340" fill="#E6DAC1" id="map-bg-rect" />
+              <rect width="540" height="340" fill="url(#map-grid)" />
+
+              <!-- Topographic contour lines -->
+              <path d="M20,290 Q110,240 190,275 T360,255 T520,295" fill="none" stroke="rgba(130,90,55,0.28)" stroke-width="1.5" stroke-dasharray="5 4" />
+              <path d="M40,65 Q160,35 280,75 T490,45" fill="none" stroke="rgba(130,90,55,0.28)" stroke-width="1.5" stroke-dasharray="5 4" />
+
+              <!-- Interstate 40 (Bypass) -->
+              <path d="M 20 82 L 520 52" fill="none" stroke="#6E7C74" stroke-width="5" stroke-dasharray="10 6" />
+              <text x="405" y="42" fill="#4C5A52" font-family="Oswald, sans-serif" font-size="11" letter-spacing="1.5">INTERSTATE 40 (CLOSED)</text>
+
+              <!-- Old State Route 19 -->
+              <path id="highway-path" d="M 30 245 C 120 220, 175 180, 265 180 C 350 180, 420 140, 505 115" fill="none" stroke="#B5482A" stroke-width="5" stroke-linecap="round" />
+
+              <!-- Anomalous Loop Path (revealed when distance glitches!) -->
+              <path id="highway-loop-path" d="M 265 180 C 345 110, 430 230, 325 270 C 210 305, 165 215, 265 180 Z" fill="none" stroke="#A61C24" stroke-width="3.5" stroke-dasharray="7 5" opacity="0" />
+
+              <!-- Landmarks -->
+              <circle cx="88" cy="226" r="6" fill="#2A4D4D" />
+              <text x="58" y="254" fill="#2B241E" font-family="Oswald, sans-serif" font-size="11">PAINTED MESA</text>
+
+              <circle cx="460" cy="128" r="6" fill="#2A4D4D" />
+              <text x="418" y="152" fill="#2B241E" font-family="Oswald, sans-serif" font-size="11">SALT FLATS</text>
+
+              <!-- Milepost 44: THE SUNWARD MOTEL -->
+              <g id="map-pin-sunward">
+                <circle cx="265" cy="180" r="14" fill="rgba(224,99,46,0.22)" />
+                <circle cx="265" cy="180" r="7" fill="#D93829" stroke="#F7F0E2" stroke-width="2.5" />
+                <text x="208" y="155" fill="#8C2318" font-family="Oswald, sans-serif" font-size="13" font-weight="700" letter-spacing="1">SUNWARD MOTEL (MILE 44)</text>
+              </g>
+
+              <!-- Compass Rose -->
+              <g transform="translate(480, 285)" stroke="#5A4A3A" fill="none" stroke-width="1.4">
+                <circle r="22" />
+                <line x1="0" y1="-26" x2="0" y2="26" />
+                <line x1="-26" y1="0" x2="26" y2="0" />
+                <text x="-4" y="-30" fill="#5A4A3A" stroke="none" font-family="Oswald, sans-serif" font-size="10">N</text>
+              </g>
+
+              <text x="18" y="324" fill="#6B5C4A" font-family="Special Elite, monospace" font-size="11" id="map-footer-stamp">
+                ARIZONA HIGHWAY DEPT · REV. MAY 1962 · SCALE: 1 IN = 4 MI
+              </text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ACT V: NIGHTFALL — INTERACTIVE AM RADIO & UV MAINTENANCE LOGS
+         ========================================================= -->
+    <section id="act-nightfall" class="act act-nightfall" data-act-section="5">
+      <div class="container">
+        <div class="nightfall-intro">
+          <h2 class="section-title">After Sundown on Route 19</h2>
+          <p class="section-intro">
+            Once the mesas go dark, desert reception carries for hundreds of miles. Every room is
+            equipped with a genuine 1962 Motorola tabletop AM receiver. Try tuning the dial below —
+            though guests occasionally report picking up stations that went off the air decades ago.
+          </p>
+        </div>
+
+        <!-- Interactive 1962 Motorola AM Radio -->
+        <div class="radio-cabinet" id="radio-cabinet">
+          <div class="radio-top-strip">
+            <span class="radio-brand">MOTOROLA · GOLDEN VOICE AM</span>
+            <span class="radio-tube-status" id="radio-status-led">TUBES COLD</span>
+          </div>
+
+          <div class="radio-body">
+            <!-- Left Speaker Grille -->
+            <div class="radio-grille" aria-hidden="true">
+              <div class="grille-slat"></div>
+              <div class="grille-slat"></div>
+              <div class="grille-slat"></div>
+              <div class="grille-slat"></div>
+              <div class="grille-slat"></div>
+              <div class="grille-slat"></div>
+              <div class="grille-slat"></div>
+            </div>
+
+            <!-- Right Glowing Dial & Controls -->
+            <div class="radio-face">
+              <div class="radio-dial-window" id="radio-dial-window">
+                <div class="dial-scale">
+                  <span>540</span>
+                  <span>700</span>
+                  <span>900</span>
+                  <span>1100</span>
+                  <span>1300</span>
+                  <span>1500</span>
+                  <span>1600</span>
+                </div>
+                <div class="dial-ticks" aria-hidden="true"></div>
+                <div class="dial-needle" id="radio-needle"></div>
+                <div class="dial-freq-readout" id="radio-freq-readout">580 AM</div>
+              </div>
+
+              <div class="radio-controls-row">
+                <button type="button" class="radio-power-btn" id="radio-power-btn" aria-pressed="false">
+                  POWER: OFF
+                </button>
+                <div class="radio-slider-wrap">
+                  <label for="radio-slider" class="sr-only">AM Frequency Dial</label>
+                  <input type="range" id="radio-slider" min="540" max="1600" step="5" value="580" />
+                </div>
+                <div class="radio-presets" aria-label="Quick Tune Stations">
+                  <button type="button" class="preset-btn" data-freq="580">580</button>
+                  <button type="button" class="preset-btn" data-freq="890">890</button>
+                  <button type="button" class="preset-btn" data-freq="1120">1120</button>
+                  <button type="button" class="preset-btn" data-freq="1380">1380</button>
+                  <button type="button" class="preset-btn" data-freq="1560">1560</button>
+                </div>
+              </div>
+
+              <div class="radio-transcript" id="radio-transcript" aria-live="polite">
+                <span class="transcript-station" id="transcript-station">RECEIVER STANDBY</span>
+                <p class="transcript-text" id="transcript-text">
+                  Press POWER to warm up the vacuum tubes and scan the Painted Mesa AM band.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Night Manager's Maintenance Index Cards + Interactive UV Blacklight -->
+        <div class="uv-module" id="uv-module">
+          <div class="uv-header">
+            <div>
+              <h3>Night Manager's Desk Records (Oct 1962)</h3>
+              <p>
+                Routine upkeep logs left behind the front counter. Everything appears orderly under
+                regular office light — though housekeeping noted fluorescent ink smudges on the cards.
+              </p>
+            </div>
+            <button type="button" id="uv-toggle-btn" class="uv-btn" aria-pressed="false">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"></path>
+              </svg>
+              <span id="uv-btn-label">Turn On Ultraviolet Inspection Bulb</span>
+            </button>
+          </div>
+
+          <div class="uv-board" id="uv-board">
+            <div class="uv-beam" id="uv-beam" aria-hidden="true"></div>
+
+            <article class="index-card">
+              <div class="card-stamp">LOG #104 · POOL MAINTENANCE</div>
+              <h4>Deep-End Drain &amp; Chlorine</h4>
+              <p class="card-typed">
+                Oct 17: Added 4 lbs chlorine. Skimmed desert moths. Pump pressure steady at 22 PSI.
+                Reminded guests not to dive near the drain grate after dusk.
+              </p>
+              <div class="uv-secret" aria-hidden="true">
+                IT IS NOT A PUMP.<br />
+                IT BREATHES EVERY 14 SECONDS.<br />
+                COUNT THE FINGERS ON THE GRATE.
+              </div>
+            </article>
+
+            <article class="index-card">
+              <div class="card-stamp">LOG #108 · LOST &amp; FOUND</div>
+              <h4>Items Held in Front Safe</h4>
+              <p class="card-typed">
+                Oct 18: 1 pair tortoise eyeglasses, 3 sets Buick car keys, 1 leather valise (initialed
+                R.H.), 14 wristwatches left on nightstands after early departures.
+              </p>
+              <div class="uv-secret" aria-hidden="true">
+                ALL 14 WATCHES STOPPED AT 2:17.<br />
+                NOBODY CHECKED OUT.<br />
+                CHECK THE BASEMENT BOILER.
+              </div>
+            </article>
+
+            <article class="index-card">
+              <div class="card-stamp">LOG #112 · ELECTRICAL</div>
+              <h4>Roadside Neon Transformer</h4>
+              <p class="card-typed">
+                Oct 19 (1:50 AM): Heavy dry-heat static rolling off the salt flats. Main breaker
+                tripped twice. Neon sign stays illuminated even with main fuse pulled from box.
+              </p>
+              <div class="uv-secret" aria-hidden="true">
+                THE WIRE WAS CUT IN 1968.<br />
+                WHY IS IT STILL HUMMING?<br />
+                DO NOT ANSWER ROOM 15.
+              </div>
+            </article>
+
+            <article class="index-card">
+              <div class="card-stamp">LOG #119 · STAFF SCHEDULE</div>
+              <h4>Night Desk Coverage</h4>
+              <p class="card-typed">
+                Arthur Vance — Midnight to 8:00 AM.<br />
+                Evelyn Vance — Housekeeping.<br />
+                Always greet late motorists with a warm smile and hold their keys overnight.
+              </p>
+              <div class="uv-secret" aria-hidden="true">
+                ARTHUR DIED OCT 19, 1962.<br />
+                WHO SIGNED YOU IN?<br />
+                LOOK AT HIS TEETH WHEN HE SMILES.
+              </div>
+            </article>
+          </div>
+          <p class="uv-hint" id="uv-hint">Move your cursor across the index cards while the Ultraviolet Bulb is switched on.</p>
+        </div>
+
+        <!-- Interactive 1962 Zenith CRT Television (Channel 3 Parking Lot Feed) -->
+        <div class="zenith-module" id="zenith-module">
+          <div class="zenith-copy">
+            <h3>Unit 12 Television — Zenith Space Command</h3>
+            <p>
+              Guests in End Unit 12 reported that their television only receives broadcasts from inside
+              the motel property. Turn the VHF channel selector and adjust the rabbit-ear antenna below
+              to clear up the snow on Channel 3.
+            </p>
+            <div class="tv-channel-desc" id="tv-channel-desc">
+              <strong>CH 03 — PARKING LOT FEED:</strong> Grainy closed-circuit image of the courtyard.
+              The Sunward Motel has never owned a security camera.
+            </div>
+          </div>
+
+          <div class="zenith-cabinet">
+            <div class="tv-bezel">
+              <canvas id="zenith-canvas" width="440" height="310" aria-label="1962 Zenith CRT television display"></canvas>
+              <div class="tv-scanlines" aria-hidden="true"></div>
+              <div class="tv-hud-tag" id="tv-hud-tag">CH 03 · 02:17 AM</div>
+            </div>
+            <div class="tv-controls-panel">
+              <div class="tv-dial-group">
+                <span class="tv-ctrl-label">VHF CHANNEL</span>
+                <div class="tv-channel-btns">
+                  <button type="button" class="tv-ch-btn" data-ch="2">CH 2</button>
+                  <button type="button" class="tv-ch-btn active" data-ch="3">CH 3</button>
+                  <button type="button" class="tv-ch-btn" data-ch="4">CH 4</button>
+                  <button type="button" class="tv-ch-btn" data-ch="7">CH 7</button>
+                  <button type="button" class="tv-ch-btn" data-ch="0">OFF</button>
+                </div>
+              </div>
+              <div class="tv-antenna-group">
+                <label for="tv-antenna-slider" class="tv-ctrl-label">RABBIT-EAR ANTENNA TUNING</label>
+                <input type="range" id="tv-antenna-slider" min="0" max="100" value="28" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ACT VI: 2:17 AM — THE HALLWAY & INTERACTIVE BRASS PEEPHOLES
+         ========================================================= -->
+    <section id="act-corridor" class="act act-corridor" data-act-section="6">
+      <div class="container">
+        <div class="corridor-header">
+          <h2 class="section-title">Quiet Hours in Wing B</h2>
+          <div class="corridor-clock" id="corridor-clock">02:17 AM</div>
+          <p class="section-intro">
+            Did you hear footsteps outside your door? Before unlatching the chain, press your eye
+            to the brass peephole. Look carefully — and be warned that some rooms do not like being
+            checked twice.
+          </p>
+        </div>
+
+        <div class="doors-grid" id="doors-grid">
+          <article class="motel-door" data-door="4">
+            <div class="door-plate">04</div>
+            <div class="peephole-ring">
+              <button type="button" class="peephole-btn" data-door-open="4" aria-label="Look through Room 04 peephole">
+                <span class="peephole-glass"></span>
+                <span class="peephole-label">PEEK</span>
+              </button>
+            </div>
+            <div class="door-chain" aria-hidden="true"></div>
+            <p class="door-status" id="door-status-4">Faint television static inside.</p>
+          </article>
+
+          <article class="motel-door" data-door="7">
+            <div class="door-plate">07</div>
+            <div class="peephole-ring">
+              <button type="button" class="peephole-btn" data-door-open="7" aria-label="Look through Room 07 peephole">
+                <span class="peephole-glass"></span>
+                <span class="peephole-label">PEEK</span>
+              </button>
+            </div>
+            <div class="door-chain" aria-hidden="true"></div>
+            <p class="door-status" id="door-status-7">Do Not Disturb sign is wet.</p>
+          </article>
+
+          <article class="motel-door" data-door="11">
+            <div class="door-plate">11</div>
+            <div class="peephole-ring">
+              <button type="button" class="peephole-btn" data-door-open="11" aria-label="Look through Room 11 peephole">
+                <span class="peephole-glass"></span>
+                <span class="peephole-label">PEEK</span>
+              </button>
+            </div>
+            <div class="door-chain" aria-hidden="true"></div>
+            <p class="door-status" id="door-status-11">Smell of cold pool water.</p>
+          </article>
+
+          <article class="motel-door motel-door-15" data-door="15">
+            <div class="door-plate door-plate-15">15</div>
+            <div class="peephole-ring">
+              <button type="button" class="peephole-btn" data-door-open="15" aria-label="Look through Room 15 peephole">
+                <span class="peephole-glass"></span>
+                <span class="peephole-label">PEEK</span>
+              </button>
+            </div>
+            <div class="door-chain broken" aria-hidden="true"></div>
+            <p class="door-status" id="door-status-15">This door was not on the brochure.</p>
+          </article>
+        </div>
+
+        <!-- Inline Interactive Circular Fisheye Peephole Lens Stage -->
+        <div class="peephole-stage" id="peephole-stage" hidden>
+          <div class="peephole-stage-bar">
+            <span id="peephole-active-title">VIEWING THROUGH BRASS LENS — DOOR 04</span>
+            <button type="button" id="peephole-close-btn" class="btn-step-back">Step Back From Door</button>
+          </div>
+          <div class="peephole-lens-wrap" id="peephole-lens-wrap">
+            <div class="peephole-circle" id="peephole-circle">
+              <img src="assets/peephole-room.jpg" alt="View through motel door peephole" id="peephole-img" class="peephole-img" />
+              <div class="peephole-overlay-fx" id="peephole-overlay-fx"></div>
+              <div class="peephole-eye-scare" id="peephole-eye-scare" aria-hidden="true">
+                <div class="scare-iris"><div class="scare-pupil"></div></div>
+              </div>
+              <div class="peephole-glass-glare" aria-hidden="true"></div>
+            </div>
+          </div>
+          <p class="peephole-caption" id="peephole-caption"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ACT VII: THE DARKROOM BASIN & EXPRESS CHECK-IN TRAP
+         ========================================================= -->
+    <section id="act-darkroom" class="act act-darkroom" data-act-section="7">
+      <div class="container">
+        <div class="darkroom-head">
+          <h2 class="section-title">Recovered From the Boiler Darkroom</h2>
+          <p class="section-intro">
+            Four unexposed Land Camera prints found floating in the red safelight tray behind the
+            front desk. Click each black frame to pull it from the developer bath and watch what
+            emerges.
+          </p>
+        </div>
+
+        <div class="polaroid-tray" id="polaroid-tray">
+          <button type="button" class="polaroid-card" data-polaroid="0" aria-label="Develop Polaroid 1">
+            <div class="polaroid-frame">
+              <img src="assets/polaroid-deepend.jpg" alt="Flash photograph of drained swimming pool tiles with dark muddy handprints climbing upward" class="polaroid-img" />
+              <div class="polaroid-chemical"><span>CLICK TO DEVELOP</span></div>
+            </div>
+            <div class="polaroid-note" data-alt-note="THEY WERE NOT CLIMBING OUT. THEY WERE PULLING SOMEONE IN.">
+              Oct 19, 1962 — Deep end drained. Marks on tile.
+            </div>
+          </button>
+
+          <button type="button" class="polaroid-card" data-polaroid="1" aria-label="Develop Polaroid 2">
+            <div class="polaroid-frame">
+              <img src="assets/polaroid-desk.jpg" alt="Midnight flash photograph of abandoned motel front desk with pale reflection in cracked glass" class="polaroid-img" />
+              <div class="polaroid-chemical"><span>CLICK TO DEVELOP</span></div>
+            </div>
+            <div class="polaroid-note" data-alt-note="HE IS STANDING BEHIND THE GLASS RIGHT NOW.">
+              Oct 19, 1962 — Front desk at 2:17 AM.
+            </div>
+          </button>
+
+          <button type="button" class="polaroid-card" data-polaroid="2" aria-label="Develop Polaroid 3">
+            <div class="polaroid-frame">
+              <img src="assets/hero-sunward-night.jpg" alt="Abandoned 1962 motel shrouded in fog with blood-red neon and dark silhouette beside the pool" class="polaroid-img" />
+              <div class="polaroid-chemical"><span>CLICK TO DEVELOP</span></div>
+            </div>
+            <div class="polaroid-note" data-alt-note="DO NOT LOOK AT THE EDGE OF THE POOL.">
+              Oct 20, 1962 — Courtyard after the fog came in.
+            </div>
+          </button>
+
+          <button type="button" class="polaroid-card" data-polaroid="3" aria-label="Develop Polaroid 4">
+            <div class="polaroid-frame">
+              <img src="assets/climax-hallway.jpg" alt="Decaying motel corridor with wet footprints and gaunt silhouette in crimson light" class="polaroid-img" />
+              <div class="polaroid-chemical"><span>CLICK TO DEVELOP</span></div>
+            </div>
+            <div class="polaroid-note" data-alt-note="BEHIND YOU.">
+              TODAY — Outside your door.
+            </div>
+          </button>
+        </div>
+
+        <!-- Gaslighting Reservation / Express Check-In Trap -->
+        <div class="trap-card" id="trap-card">
+          <div class="trap-stamp-overlay" id="trap-stamp-overlay" aria-hidden="true">
+            CHECKED IN<br />ROOM 15<br />NO CHECKOUT
+          </div>
+
+          <div class="trap-header">
+            <h3>Express Registration Card — Complete Your Stay</h3>
+            <p id="trap-subtitle">You have already driven past Milepost 44. Please confirm your room assignment.</p>
+          </div>
+
+          <form id="trap-form" class="trap-form" autocomplete="off">
+            <div class="trap-grid">
+              <div class="trap-field">
+                <label for="trap-name">Guest Full Name</label>
+                <input type="text" id="trap-name" placeholder="We already know it..." />
+              </div>
+
+              <div class="trap-field">
+                <label for="trap-guests">Number of Guests in Vehicle</label>
+                <select id="trap-guests">
+                  <option value="1">1 Traveler (Alone)</option>
+                  <option value="2">2 Travelers</option>
+                  <option value="3">Family (3–4)</option>
+                </select>
+                <small class="trap-whisper" id="trap-guests-whisper"></small>
+              </div>
+
+              <div class="trap-field">
+                <label for="trap-checkin">Check-In Date</label>
+                <input type="text" id="trap-checkin" value="October 19, 1962" readonly />
+              </div>
+
+              <div class="trap-field">
+                <label for="trap-checkout">Check-Out Date</label>
+                <input type="date" id="trap-checkout" value="1962-10-20" />
+                <small class="trap-whisper" id="trap-checkout-whisper"></small>
+              </div>
+            </div>
+
+            <div class="trap-actions">
+              <button type="submit" class="btn-trap-confirm" id="trap-confirm-btn">Accept Key to Room 15</button>
+              <button type="button" class="btn-trap-cancel" id="trap-cancel-btn">Cancel &amp; Drive Away</button>
+            </div>
+            <p class="trap-log" id="trap-log" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <!-- Corroded Steel Hallway Breaker Box (Fights Back Before Corridor B) -->
+        <div class="breaker-module" id="breaker-module">
+          <div class="breaker-head">
+            <div>
+              <h3>Wing B Electrical Panel — 240V Service</h3>
+              <p>Try shutting down the roadside neon sign or Room 15 before stepping into Corridor B.</p>
+            </div>
+            <div class="breaker-meter" id="breaker-meter">LOAD: 60 HZ · ANOMALOUS DRAW</div>
+          </div>
+
+          <div class="breaker-grid" id="breaker-grid">
+            <button type="button" class="breaker-switch on" data-breaker="pool" aria-pressed="true">
+              <span class="br-led"></span>
+              <span class="br-name">DEEP-END PUMP</span>
+              <span class="br-state">ON</span>
+            </button>
+            <button type="button" class="breaker-switch on" data-breaker="neon" aria-pressed="true">
+              <span class="br-led"></span>
+              <span class="br-name">COURTYARD NEON</span>
+              <span class="br-state">ON</span>
+            </button>
+            <button type="button" class="breaker-switch on" data-breaker="lobby" aria-pressed="true">
+              <span class="br-led"></span>
+              <span class="br-name">FRONT OFFICE</span>
+              <span class="br-state">ON</span>
+            </button>
+            <button type="button" class="breaker-switch on" data-breaker="corridor" aria-pressed="true">
+              <span class="br-led"></span>
+              <span class="br-name">CORRIDOR B LIGHTS</span>
+              <span class="br-state">ON</span>
+            </button>
+            <button type="button" class="breaker-switch on" data-breaker="ice" aria-pressed="true">
+              <span class="br-led"></span>
+              <span class="br-name">ICE MACHINE</span>
+              <span class="br-state">ON</span>
+            </button>
+            <button type="button" class="breaker-switch on breaker-danger" data-breaker="room15" aria-pressed="true">
+              <span class="br-led"></span>
+              <span class="br-name">ROOM 15 / ANNEX</span>
+              <span class="br-state">ON</span>
+            </button>
+          </div>
+          <p class="breaker-log" id="breaker-log" aria-live="polite">
+            Warning: Do not leave Corridor B unlit after 02:00 AM.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ACT VIII: CORRIDOR B — PITCH-BLACK FLASHLIGHT EXPLORATION
+         ========================================================= -->
+    <section id="act-flashlight" class="act act-flashlight" data-act-section="8">
+      <div class="flashlight-hud">
+        <div class="hud-left">
+          <h2 class="flashlight-title">CORRIDOR B · 02:17 AM</h2>
+          <p class="flashlight-sub">Power failed at the breaker. Move your cursor to sweep your 1962 Eveready flashlight across the hallway.</p>
+        </div>
+        <div class="hud-right">
+          <div class="battery-meter">
+            <span>BATTERY</span>
+            <div class="battery-bar"><div class="battery-fill" id="battery-fill"></div></div>
+          </div>
+          <button type="button" id="smack-flashlight-btn" class="btn-smack">Tap Flashlight</button>
+        </div>
+      </div>
+
+      <div class="flashlight-arena" id="flashlight-arena">
+        <img src="assets/climax-hallway.jpg" alt="Dark decaying motel corridor stretching into crimson fog" class="corridor-bg-img" />
+
+        <!-- Scratched clues embedded in the dark walls (only visible under the beam) -->
+        <div class="wall-scratch scratch-1">
+          |||| |||| |||| ||||<br />
+          DAY 23,414<br />
+          STILL OCTOBER 19
+        </div>
+
+        <div class="wall-scratch scratch-2">
+          DO NOT ANSWER<br />
+          THE BLACK PHONE<br />
+          IN ROOM 15
+        </div>
+
+        <div class="wall-scratch scratch-3">
+          THE WATER IN THE POOL<br />
+          IS NOT 14 FEET DEEP.<br />
+          IT GOES DOWN TO THE BASEMENT.
+        </div>
+
+        <div class="wall-scratch scratch-4">
+          YOU SCROLLED PAST<br />
+          ALL THE WARNINGS.<br />
+          NOW IT KNOWS YOUR FACE.
+        </div>
+
+        <!-- Vanishing Glowing Eyes that flee when the flashlight approaches -->
+        <div class="lurking-eyes" id="lurking-eyes" aria-hidden="true">
+          <span class="eye-dot"></span>
+          <span class="eye-dot"></span>
+        </div>
+
+        <!-- Interactive Door 15 Brass Handle at the end of the corridor -->
+        <a href="#act-climax" class="corridor-door-trigger" id="corridor-door-trigger">
+          <span class="door-trigger-num">ROOM 15</span>
+          <span class="door-trigger-cta">PUSH OPEN THE DOOR ↓</span>
+        </a>
+
+        <!-- Darkness Mask Layer with dynamic CSS radial-gradient cone -->
+        <div class="flashlight-mask" id="flashlight-mask" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ACT IX: ROOM 15 — THE RINGING PHONE & PERSONALIZED FOLIO
+         ========================================================= -->
+    <section id="act-climax" class="act act-climax" data-act-section="9">
+      <div class="climax-bg" aria-hidden="true">
+        <img src="assets/climax-hallway.jpg" alt="" class="climax-bg-img" id="climax-bg-img" />
+        <div class="climax-red-wash"></div>
+      </div>
+
+      <div class="container climax-inner">
+        <div class="climax-neon-broken" aria-label="No Exit">
+          <span class="broken-off">VA</span><span class="broken-on">CAN</span><span class="broken-flicker">T</span>
+          <span class="broken-sub">ROOM 15 · CHECK-IN COMPLETE</span>
+        </div>
+
+        <!-- Interactive Ringing 1962 Black Bakelite Rotary Phone -->
+        <div class="phone-stage" id="phone-stage">
+          <div class="rotary-phone ringing" id="rotary-phone" aria-hidden="true">
+            <svg viewBox="0 0 240 175" width="220" height="160">
+              <!-- Handset (animates/shakes while ringing) -->
+              <g class="phone-handset" id="phone-handset">
+                <path d="M26 52 C26 24, 214 24, 214 52 C214 68, 198 76, 184 72 L174 56 C150 48, 90 48, 66 56 L56 72 C42 76, 26 68, 26 52 Z" fill="#181516" stroke="#4D2528" stroke-width="2" />
+                <ellipse cx="42" cy="60" rx="16" ry="12" fill="#0D0B0C" />
+                <ellipse cx="198" cy="60" rx="16" ry="12" fill="#0D0B0C" />
+              </g>
+              <!-- Cradle & Body -->
+              <path d="M58 68 L182 68 L208 148 C210 156, 202 162, 192 162 L48 162 C38 162, 30 156, 32 148 Z" fill="#141112" stroke="#5A1C20" stroke-width="2" />
+              <rect x="74" y="54" width="16" height="16" rx="3" fill="#2A2022" />
+              <rect x="150" y="54" width="16" height="16" rx="3" fill="#2A2022" />
+              <!-- Rotary Dial -->
+              <circle cx="120" cy="116" r="34" fill="#0A0809" stroke="#7A282D" stroke-width="2" />
+              <circle cx="120" cy="116" r="14" fill="#D8CBB8" />
+              <text x="120" y="120" text-anchor="middle" font-family="Special Elite, monospace" font-size="9" fill="#1A0A0B">217</text>
+              <!-- Dial Finger Holes -->
+              <circle cx="120" cy="90" r="4.2" fill="#C9B9A3" />
+              <circle cx="137" cy="96" r="4.2" fill="#C9B9A3" />
+              <circle cx="145" cy="113" r="4.2" fill="#C9B9A3" />
+              <circle cx="140" cy="131" r="4.2" fill="#C9B9A3" />
+              <circle cx="124" cy="141" r="4.2" fill="#C9B9A3" />
+              <circle cx="105" cy="138" r="4.2" fill="#C9B9A3" />
+              <circle cx="95" cy="122" r="4.2" fill="#C9B9A3" />
+              <circle cx="98" cy="103" r="4.2" fill="#C9B9A3" />
+              <!-- Finger Stop -->
+              <path d="M144 128 L158 136" stroke="#9B8A76" stroke-width="3" stroke-linecap="round" />
+            </svg>
+          </div>
+
+          <h2 class="climax-heading" id="climax-heading">The Front Desk Is Calling Room 15</h2>
+          <p class="climax-dialogue" id="climax-dialogue">
+            The black Bakelite receiver rattles violently against its cradle. Outside the frosted
+            glass window, headlights flicker once and die.
+          </p>
+
+          <div class="climax-actions" id="climax-actions">
+            <button type="button" class="btn-answer-phone" id="answer-phone-btn">Pick Up Receiver</button>
+            <button type="button" class="btn-cut-cord" id="cut-cord-btn">Rip Cord From Wall</button>
+          </div>
+        </div>
+
+        <!-- Personalized Guest Folio Receipt (Real Session Telemetry) -->
+        <aside class="guest-receipt" id="guest-receipt" aria-label="Your Sunward Motel Guest Folio">
+          <div class="receipt-tear-top" aria-hidden="true"></div>
+          <div class="receipt-head">
+            <div class="receipt-logo">THE SUNWARD MOTEL</div>
+            <div class="receipt-sub">MILEPOST 44 · OLD ROUTE 19 · PAINTED MESA</div>
+            <div class="receipt-sub">OFFICIAL GUEST FOLIO — COPY KEPT BY NIGHT DESK</div>
+          </div>
+
+          <dl class="receipt-rows">
+            <div><dt>GUEST NAME</dt><dd id="rcpt-name">UNREGISTERED TRAVELER</dd></div>
+            <div><dt>ASSIGNED UNIT</dt><dd id="rcpt-unit">ROOM 15 (DEADBOLTED)</dd></div>
+            <div><dt>LOCAL ARRIVAL TIME</dt><dd id="rcpt-time">--:--</dd></div>
+            <div><dt>TIME INSIDE MOTEL</dt><dd id="rcpt-duration">00m 00s</dd></div>
+            <div><dt>WINDOW VIEWPORT</dt><dd id="rcpt-viewport">---- × ----</dd></div>
+            <div><dt>ARTIFACTS UNCOVERED</dt><dd id="rcpt-clues">0 / 8</dd></div>
+            <div><dt>TIMES YOU TRIED TO SCROLL BACK</dt><dd id="rcpt-turnbacks">0</dd></div>
+            <div class="receipt-total"><dt>BALANCE DUE</dt><dd>YOUR KEYS</dd></div>
+          </dl>
+
+          <p class="receipt-verdict" id="rcpt-verdict">
+            Thank you for choosing The Sunward Motel. Checkout was at 11:00 AM on October 19, 1962.
+          </p>
+
+          <div class="receipt-footer-actions">
+            <button type="button" class="btn-loop-back" id="loop-up-btn">
+              Walk Back to the Courtyard (Scroll Up — Loop #2)
+            </button>
+            <button type="button" class="btn-reset-1962" id="reset-1962-btn">
+              Reset Experience to May 14, 1962
+            </button>
+          </div>
+          <div class="receipt-tear-bottom" aria-hidden="true"></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <script src="audio.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
