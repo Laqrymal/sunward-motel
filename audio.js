@@ -202,20 +202,45 @@ class SunwardAudioEngine {
     this.radioToneOsc.start(now);
   }
 
-  toggle() {
+  startByDefault() {
+    if (!(window.AudioContext || window.webkitAudioContext)) return false;
     this.init();
-    if (this.ctx.state === 'suspended') {
-      this.ctx.resume();
+    const updatePlayback = () => {
+      if (this.enabled && this.ctx.state === 'running') {
+        if (this.chordTimer === null) this._startLoops();
+      } else {
+        this._stopLoops();
+      }
+    };
+    this.ctx.addEventListener('statechange', updatePlayback);
+
+    // Safari and other browsers may hold the context until a trusted gesture.
+    // Retry from the gesture handler, never turning a muted switch back on.
+    const unlock = () => {
+      if (this.enabled && this.ctx.state !== 'running') this.ctx.resume().catch(() => {});
+    };
+    for (const event of ['click', 'keydown', 'touchend']) {
+      document.addEventListener(event, unlock, {passive: true});
     }
+    return this.toggle();
+  }
+
+  toggle() {
+    if (!(window.AudioContext || window.webkitAudioContext)) return false;
+    this.init();
     this.enabled = !this.enabled;
     const now = this.ctx.currentTime;
     this.masterGain.gain.cancelScheduledValues(now);
-    this.masterGain.gain.setTargetAtTime(this.enabled ? 0.55 : 0.0001, now, 0.25);
+    this.masterGain.gain.setTargetAtTime(this.enabled ? 0.55 : 0, now, 0.25);
 
     if (this.enabled) {
-      this._startLoops();
       this.setDread(this.dread);
-      this.playSfx('switchSnap');
+      if (this.ctx.state === 'running') {
+        this._startLoops();
+        this.playSfx('switchSnap');
+      } else {
+        this.ctx.resume().catch(() => {});
+      }
     } else {
       this._stopLoops();
     }
@@ -268,6 +293,7 @@ class SunwardAudioEngine {
     clearTimeout(this.chordTimer);
     clearTimeout(this.heartbeatTimer);
     clearTimeout(this.knockTimer);
+    this.chordTimer = null;
   }
 
   _playLoungeChord() {

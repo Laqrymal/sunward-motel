@@ -71,9 +71,11 @@
     hifiToggle.setAttribute('aria-pressed', String(isOn));
     hifiLabel.textContent = isOn ? '音响：开' : '音响：关';
     if (heroHifiCtaText) {
-      heroHifiCtaText.textContent = isOn ? '大堂黑胶音响播放中' : '开启 1962 大堂黑胶音响';
+      heroHifiCtaText.textContent = isOn ? '关闭大堂黑胶音响' : '开启 1962 大堂黑胶音响';
     }
   }
+
+  syncAudioButtons(Audio.startByDefault());
 
   hifiToggle.addEventListener('click', () => {
     syncAudioButtons(Audio.toggle());

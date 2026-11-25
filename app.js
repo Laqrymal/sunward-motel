@@ -74,9 +74,11 @@
     hifiToggle.setAttribute('aria-pressed', String(isOn));
     hifiLabel.textContent = isOn ? 'HI-FI ON' : 'HI-FI OFF';
     if (heroHifiCtaText) {
-      heroHifiCtaText.textContent = isOn ? 'Lobby Hi-Fi Playing' : 'Turn On 1962 Lobby Hi-Fi';
+      heroHifiCtaText.textContent = isOn ? 'Mute Lobby Hi-Fi' : 'Turn On 1962 Lobby Hi-Fi';
     }
   }
+
+  syncAudioButtons(Audio.startByDefault());
 
   hifiToggle.addEventListener('click', () => {
     const on = Audio.toggle();

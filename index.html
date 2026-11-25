@@ -54,13 +54,13 @@
           <span id="weather-cond">CLEAR SKIES</span>
         </div>
 
-        <button type="button" id="hifi-toggle" class="hifi-btn" aria-pressed="false" title="Toggle 1962 Lobby Hi-Fi Audio">
+        <button type="button" id="hifi-toggle" class="hifi-btn" aria-pressed="true" title="Toggle 1962 Lobby Hi-Fi Audio">
           <svg class="hifi-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
             <path class="wave-1" d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
             <path class="wave-2" d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
           </svg>
-          <span id="hifi-label">HI-FI OFF</span>
+          <span id="hifi-label">HI-FI ON</span>
         </button>
 
         <a href="zh.html" class="lang-switch" lang="zh-CN" title="切换到中文版">中文</a>
@@ -106,7 +106,7 @@
               <circle cx="12" cy="12" r="9"></circle>
               <polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"></polygon>
             </svg>
-            <span id="hero-hifi-cta-text">Turn On 1962 Lobby Hi-Fi</span>
+            <span id="hero-hifi-cta-text">Mute Lobby Hi-Fi</span>
           </button>
         </div>
 
@@ -1274,7 +1274,7 @@
     </section>
   </main>
 
-  <script src="audio.js"></script>
-  <script src="app.js"></script>
+  <script src="audio.js?v=hifi-on"></script>
+  <script src="app.js?v=hifi-on"></script>
 </body>
 </html>
